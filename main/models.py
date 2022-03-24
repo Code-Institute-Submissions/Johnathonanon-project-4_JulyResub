@@ -1,12 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from autoslug import AutoSlugField
 
 
 class Advert(models.Model):
     title = models.CharField(max_length=100, unique=False)
-    slug = models.SlugField(max_length=100, unique=True)
-    featured_image = CloudinaryField('image', default='placeholder')
+    slug = AutoSlugField(populate_from='title')
+    featured_image = models.ImageField()
     firearm_make = models.CharField(max_length=100, unique=False)
     firearm_model = models.CharField(max_length=100, unique=False)
     calibre = models.CharField(max_length=100, unique=False)

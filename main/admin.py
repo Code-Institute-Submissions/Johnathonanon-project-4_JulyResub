@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Advert
 
-# Register your models here.
+
+@admin.register(Advert)
+class AdvertAdmin(admin.ModelAdmin):
+
+    list_filter = ['created_on']
