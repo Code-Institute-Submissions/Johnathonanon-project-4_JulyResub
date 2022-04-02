@@ -10,10 +10,10 @@
         <div class="col-12 mt-3 left">
             <div class="row">
             {% for advert in advert_list %}
-                <div class="card" style="width: 18rem;">
-                    <img src="{{ ad.featured_image.url }}" class="card-img-top" alt="Image of item for sale">
+                <div class="card">
+                    <img src="{{ advert.featured_image.url }}" class="card-img-top" alt="Image of item for sale">
                     <div class="card-body">
-                        <h5 class="card-title">{{ ad.title }}</h5>
+                        <h5 class="card-title">{{ advert.title }}</h5>
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the card's content.</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>

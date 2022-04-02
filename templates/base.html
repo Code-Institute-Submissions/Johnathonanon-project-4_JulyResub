@@ -27,7 +27,7 @@
     <title>FirearmExchange</title>
 </head>
 
-<body>
+<body class="h-100">
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -75,13 +75,17 @@
         </div>
     </nav>
 
+    <main>
     {% block content%}
     <!-- Content -->
     {% endblock content %}
+    </main>
 
     <!-- Footer -->
-    <footer class="footer fixed-bottom bg-dark">
-        <p class="m-0 text-center text-white">&copy John Conry 2022</p>
+    <footer class="footer">
+        <div class="container">
+          <span class="text-muted">&copy; John Conry 2022</span>
+        </div>
     </footer>
 
 </body>
