@@ -1,4 +1,3 @@
-from django import forms
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
@@ -17,7 +16,7 @@ class Advert(models.Model):
 
     title = models.CharField(max_length=100, unique=False)
     slug = AutoSlugField(populate_from='title')
-    type = forms.ChoiceField(choices=TYPES)
+    type = models.CharField(max_length=20, choices=TYPES, default="Firearm")
     featured_image = models.ImageField()
     item_make = models.CharField(max_length=100, unique=False)
     item_model = models.CharField(max_length=100, unique=False)
