@@ -3,59 +3,45 @@
 {% block content %}
 
 <div class="container-fluid">
+    <div class="col-12">
 
-    <div class="row">
-        <div class="hero-image">
-            <img src="static/thomas-tucker-2q3RH6grop4-unsplash (1).jpg" class="img-fluid"
-                alt="Responsive image of rifle with blurry background">
-        </div>
-        <div class="searchbar">
-            
-        </div>
-    </div>
+        <!-- Banner Image and Searchbar -->
 
-    <div class="row">
-        <!--  Advert List -->
-        <h2 class="section-title">Latest Adverts</h2>
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for advert in advert_list %}
-                <div class="card mb-4">
-                    <img src="{{ advert.featured_image.url }}" class="card-img-top" alt="Image of item for sale">
+        <div class="row">
+            <div  class="bg-image d-flex justify-content-center align-items-center" style="background-image: url('static/thomas-tucker-2q3RH6grop4-unsplash (1).jpg'); height: 40vh; background-size: cover;
+            background-repeat: no-repeat;">
+                <form class="searchbar">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-dark search-btn" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+ 
+        <!-- Section Heading -->
+
+        <div class="row">
+            <h2 class="section-title">Latest Adverts</h2>
+        </div>
+
+        <!-- Advert List -->
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center">
+            {% for advert in advert_list %}
+            <div class="col-9 mb-3">
+                <div class="card mb-3">
                     <div class="card-body">
+                        <img src="{{ advert.featured_image.url }}" class="card-img-top" alt="Image of item for sale">
                         <h5 class="card-title">{{ advert.title }}</h5>
                         <p class="card-text">{{ advert.description }}</p>
-                        <p class="card-text"><small class="text-muted">Advert creared: {{ advert.created_on }}</small>
+                        <p class="card-text"><small class="text-muted">Advert created: {{ advert.created_on }}</small>
                         </p>
-                        <a href="#" class="btn btn-primary">View Advert</a>
+                        <a href="#" class="btn btn-outline-dark">View Advert</a>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
             </div>
-            <div class="row">
-                {% endif %}
-
-                {% endfor %}
-            </div>
+            {% endfor %}
         </div>
     </div>
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <span class="page-link">Previous</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active" aria-current="page">
-                <span class="page-link">2</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
-    {% endif %}
 </div>
 
 {% endblock %}

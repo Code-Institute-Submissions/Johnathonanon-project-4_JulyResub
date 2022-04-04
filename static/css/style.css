@@ -4,19 +4,20 @@ html {
   }
 
 body {
+    height: 100%;
     margin-bottom: 60px;
-    color: #212529;
   }
 
 .navbar-brand {
   font-size: 200%;
 }
 
-.intro {
-  height: 100%;
+.section-title {
+  text-align: center;
+  margin: 4% auto;
 }
 
-.mask-custom {
+.banner-message {
   background: rgba(24, 24, 16, .2);
   border-radius: 2em;
   backdrop-filter: blur(15px);
@@ -25,23 +26,14 @@ body {
   box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
 }
 
-hr {
-  display: none;
+.searchbar {
+  width: 80%;
+  max-width: 50vh;
 }
 
-.section-title {
-  text-align: center;
-  margin: 2.5% auto;
-}
-
-.card {
-    width: 80%;
-    margin: auto;
-    border: 1px solid #212529;
-}
-
-.pagination {
-  padding: 2%;
+.search-btn {
+  width: 100%;
+  margin-top: 2%;
 }
 
 footer {
