@@ -5,16 +5,43 @@ html {
 
 body {
     margin-bottom: 60px;
+    color: #212529;
   }
 
 .navbar-brand {
   font-size: 200%;
 }
 
+.intro {
+  height: 100%;
+}
+
+.mask-custom {
+  background: rgba(24, 24, 16, .2);
+  border-radius: 2em;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.05);
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+
+hr {
+  display: none;
+}
+
+.section-title {
+  text-align: center;
+  margin: 2.5% auto;
+}
+
 .card {
-    width: 24%;
-    margin: 5rem auto;
+    width: 80%;
+    margin: auto;
     border: 1px solid #212529;
+}
+
+.pagination {
+  padding: 2%;
 }
 
 footer {

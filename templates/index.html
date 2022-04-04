@@ -2,47 +2,57 @@
 
 {% block content %}
 
-<div class="banner-image">
-    <img src="static/thomas-tucker-2q3RH6grop4-unsplash (1).jpg" class="img-fluid" alt="Responsive image of rifle with blurry background">
-</div>
-
 <div class="container-fluid">
+
     <div class="row">
+        <div class="hero-image">
+            <img src="static/thomas-tucker-2q3RH6grop4-unsplash (1).jpg" class="img-fluid"
+                alt="Responsive image of rifle with blurry background">
+        </div>
+        <div class="searchbar">
+            
+        </div>
+    </div>
 
+    <div class="row">
         <!--  Advert List -->
-
+        <h2 class="section-title">Latest Adverts</h2>
         <div class="col-12 mt-3 left">
             <div class="row">
-            {% for advert in advert_list %}
-                <div class="card">
+                {% for advert in advert_list %}
+                <div class="card mb-4">
                     <img src="{{ advert.featured_image.url }}" class="card-img-top" alt="Image of item for sale">
                     <div class="card-body">
                         <h5 class="card-title">{{ advert.title }}</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <p class="card-text">{{ advert.description }}</p>
+                        <p class="card-text"><small class="text-muted">Advert creared: {{ advert.created_on }}</small>
+                        </p>
+                        <a href="#" class="btn btn-primary">View Advert</a>
                     </div>
                 </div>
-            {% if forloop.counter|divisibleby:4 %}
+                {% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
-            {% endif %}
+                {% endif %}
 
-            {% endfor %}
+                {% endfor %}
             </div>
         </div>
     </div>
     {% if is_paginated %}
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}"
-                 class="page-link">&laquo; PREV</a></li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}"
-                 class="page-link">NEXT &raquo;</a></li>
-            {% endif %}
+            <li class="page-item disabled">
+                <span class="page-link">Previous</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page">
+                <span class="page-link">2</span>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
         </ul>
     </nav>
     {% endif %}
