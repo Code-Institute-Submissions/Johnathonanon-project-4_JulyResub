@@ -7,7 +7,6 @@ class AdvertList(generic.ListView):
     model = Advert
     queryset = Advert.objects.filter(status=1).order_by('-created_on')
     template_name = 'index.html'
-    paginate_by = 8
 
 
 class AdvertInfo(View):

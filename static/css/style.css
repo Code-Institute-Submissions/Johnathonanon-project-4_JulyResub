@@ -36,8 +36,28 @@ body {
   margin-top: 2%;
 }
 
-.ad-info {
-  background-image: url('static/manuel-t-UQEWkszc3mY-unsplash.jpg');
+.card {
+  max-height: 40rem;
+  max-width: 20rem;
+  margin: auto;
+}
+
+.fa-info {
+  background-image: url('/static/frankie-lu-mvSnr7qxzPM-unsplash.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.op-info {
+  background-image: url('/static/manuel-t-UQEWkszc3mY-unsplash.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.ac-info {
+  background-image: url('/static/lauren-wyckoff-SrWw838OBWQ-unsplash.jpg');
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;

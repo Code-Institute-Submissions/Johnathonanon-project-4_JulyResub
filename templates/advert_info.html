@@ -2,7 +2,16 @@
 
 {% block content %}
 
-<div class="bg-image ad-info d-flex justify-content-center align-items-center">
+{% if advert.type == "Firearm" %}
+<div class="fa-info bg-image d-flex justify-content-center align-items-center">
+{% elif advert.type == "Optic" %}
+<div class="op-info bg-image d-flex justify-content-center align-items-center">
+{% elif advert.type == "Accessory" %}
+<div class="ac-info bg-image d-flex justify-content-center align-items-center">
+{% else %}
+<div class="bg-image d-flex justify-content-center align-items-center">
+{% endif %}
+
 
 </div>
 
