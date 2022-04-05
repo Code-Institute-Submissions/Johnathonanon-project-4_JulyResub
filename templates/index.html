@@ -8,7 +8,7 @@
         <!-- Banner Image and Searchbar -->
 
         <div class="row">
-            <div  class="bg-image d-flex justify-content-center align-items-center" style="background-image: url('static/thomas-tucker-2q3RH6grop4-unsplash (1).jpg'); height: 40vh; background-size: cover;
+            <div class="bg-image d-flex justify-content-center align-items-center" style="background-image: url('static/thomas-tucker-2q3RH6grop4-unsplash (1).jpg'); height: 40vh; background-size: cover;
             background-repeat: no-repeat;">
                 <form class="searchbar">
                     <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -35,7 +35,7 @@
                         <p class="card-text">{{ advert.description }}</p>
                         <p class="card-text"><small class="text-muted">Advert created: {{ advert.created_on }}</small>
                         </p>
-                        <a href="#" class="btn btn-outline-dark">View Advert</a>
+                        <a href="{% url 'advert_info' advert.slug %}" class="btn btn-outline-dark">View Advert</a>
                     </div>
                 </div>
             </div>
