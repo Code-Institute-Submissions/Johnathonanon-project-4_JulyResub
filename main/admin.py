@@ -18,5 +18,5 @@ class MessageAdmin(admin.ModelAdmin):
     search_fields = ['name', 'email', 'body']
     actions = ['approve_message']
 
-    def approve_message(self, request, quesryset):
-        quesryset.update(approved=True)
+    def approve_message(self, request, queryset):
+        queryset.update(approved=True)

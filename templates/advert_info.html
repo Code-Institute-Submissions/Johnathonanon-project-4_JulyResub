@@ -2,14 +2,14 @@
 
 {% block content %}
 
-{% if advert.type == "Firearm" %}
+{% if advert.type == "1" %}
 <div class="fa-info bg-image d-flex justify-content-center align-items-center">
-{% elif advert.type == "Optic" %}
+{% elif advert.type == "2" %}
 <div class="op-info bg-image d-flex justify-content-center align-items-center">
-{% elif advert.type == "Accessory" %}
+{% elif advert.type == "3" %}
 <div class="ac-info bg-image d-flex justify-content-center align-items-center">
 {% else %}
-<div class="bg-image d-flex justify-content-center align-items-center">
+<div class="default-info bg-image d-flex justify-content-center align-items-center">
 {% endif %}
 
 

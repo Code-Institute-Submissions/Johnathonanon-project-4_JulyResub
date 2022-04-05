@@ -17,6 +17,13 @@ body {
   margin: 4% auto;
 }
 
+.banner {
+  background-image: url('/static/images/thomas-tucker-2q3RH6grop4-unsplash (1).jpg');
+  height: 40vh; 
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .banner-message {
   background: rgba(24, 24, 16, .2);
   border-radius: 2em;
@@ -43,21 +50,28 @@ body {
 }
 
 .fa-info {
-  background-image: url('/static/frankie-lu-mvSnr7qxzPM-unsplash.jpg');
+  background-image: url('/static/images/frankie-lu-mvSnr7qxzPM-unsplash.jpg');
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .op-info {
-  background-image: url('/static/manuel-t-UQEWkszc3mY-unsplash.jpg');
+  background-image: url('/static/images/manuel-t-UQEWkszc3mY-unsplash.jpg');
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .ac-info {
-  background-image: url('/static/lauren-wyckoff-SrWw838OBWQ-unsplash.jpg');
+  background-image: url('/static/images/lauren-wyckoff-SrWw838OBWQ-unsplash.jpg');
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.default-info {
+  background-image: url('/static/images/david-leveque-21-lfJcLMVw-unsplash.jpg');
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
