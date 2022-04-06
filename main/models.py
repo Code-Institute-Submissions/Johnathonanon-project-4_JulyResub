@@ -8,9 +8,14 @@ STATUS = ((0, "Draft"), (1, "Published"))
 class Advert(models.Model):
 
     TYPES = (
-        ("1", "Firearm"),
-        ("2", "Optic"),
-        ("3", "Accessory"),
+        ("firearm", "Firearm"),
+        ("optic", "Optic"),
+        ("accessory", "Accessory"),
+    )
+
+    CONDITIONS = (
+        ("new", "New"),
+        ("used", "Used"),
     )
 
     title = models.CharField(max_length=100, unique=False)
@@ -19,6 +24,7 @@ class Advert(models.Model):
     featured_image = models.ImageField()
     item_make = models.CharField(max_length=100, unique=False)
     item_model = models.CharField(max_length=100, unique=False)
+    condition = models.CharField(max_length=20, choices=CONDITIONS, default="New")
     calibre = models.CharField(
         max_length=100, unique=False, blank=True, default="N/A")
     price = models.DecimalField(max_digits=6, decimal_places=2)
