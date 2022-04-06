@@ -14,19 +14,38 @@
     <div class="container-fluid info-container">
         <div class="card title-card">
             <div class="card-body">
-                <h2>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</h2>
+                <h2>{{ advert.title }}</h2>
             </div>
         </div>
-        <div class="card ad-image-card">
+        <div class="card ad-img-card">
             <div class="card-body">
-                <img src="{{ advert.featured_image.url }}" class="img-fluid"
+                <img src="{{ advert.featured_image.url }}" class="ad-img"
                     alt="Image of item for sale">
             </div>
         </div>
         <div class="card info-card">
             <div class="card-body">
                 <h3>Key Information</h3>
-                <p>info</p>
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th scope="row">MAKE</th>
+                            <td>{{ advert.item_make }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">MODEL</th>
+                            <td>{{ advert.item_model }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">CALIBRE</th>
+                            <td>{{ advert.calibre }}</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">PRICE</th>
+                            <td>&euro;{{ advert.price }}</td>
+                        </tr>
+                      </tbody>
+                </table>
             </div>
         </div>
         <div class="card description-card">
