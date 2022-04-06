@@ -12,22 +12,29 @@
 <div class="default-info bg-image d-flex justify-content-center align-items-center">
 {% endif %}
     <div class="container-fluid info-container">
-        <div class="col">
-            <div class="row info-title">
-                <h2>{{ advert.title }}</h2>
+        <div class="card title-card">
+            <div class="card-body">
+                <h2>TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT</h2>
             </div>
-            <div class="row info-pics">
-                {{ advert.featured_image }}
+        </div>
+        <div class="card ad-image-card">
+            <div class="card-body">
+                <img src="{{ advert.featured_image.url }}" class="img-fluid"
+                    alt="Image of item for sale">
             </div>
-            <div class="row info-key">
-                
+        </div>
+        <div class="card info-card">
+            <div class="card-body">
+                <h3>Key Information</h3>
+                <p>info</p>
             </div>
-            <div class="row info-description">
-
+        </div>
+        <div class="card description-card">
+            <div class="card-body">
+                <p>{{ advert.description }}</p>
             </div>
         </div>
     </div>
-
 </div>
 
 {% endblock %}

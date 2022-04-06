@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
 from autoslug import AutoSlugField
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -22,7 +21,7 @@ class Advert(models.Model):
     item_model = models.CharField(max_length=100, unique=False)
     calibre = models.CharField(
         max_length=100, unique=False, blank=True, default="N/A")
-    price = models.IntegerField()
+    price = models.DecimalField(max_digits=6, decimal_places=2)
     description = models.TextField()
     seller = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='seller_ad')
