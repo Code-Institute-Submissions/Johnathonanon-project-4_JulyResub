@@ -20,7 +20,8 @@ class Advert(models.Model):
     featured_image = models.ImageField()
     item_make = models.CharField(max_length=100, unique=False)
     item_model = models.CharField(max_length=100, unique=False)
-    calibre = models.CharField(max_length=100, unique=False, blank=True, default="N/A")
+    calibre = models.CharField(
+        max_length=100, unique=False, blank=True, default="N/A")
     price = models.IntegerField()
     description = models.TextField()
     seller = models.ForeignKey(
