@@ -42,11 +42,11 @@ class Advert(models.Model):
 
 
 class Message(models.Model):
-    advert = models.ForeignKey(
-        Advert, on_delete=models.CASCADE, related_name='message')
-    name = models.CharField(max_length=100)
-    email = models.EmailField()
-    body = models.TextField()
+
+    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sender')
+    receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='receiver')
+    sender_email = models.EmailField()
+    message_body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
@@ -54,5 +54,4 @@ class Message(models.Model):
         ordering = ['created_on']
 
     def __str__(self):
-        return f"Message {self.body} by {self.name}"
-
+        return f"Message {self.message_body} by {self.sender}"
