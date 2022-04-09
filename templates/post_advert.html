@@ -1,0 +1,35 @@
+{% extends base.html %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+{% if user.is_authenticated %}
+
+<div class="container-fluid">
+    <div class="card signin-card offset-md-2">
+      <div class="card-body">
+
+        <h3>Post Advert</h3>
+        <form method="post">
+        </form>
+
+        </div>
+    </div>
+</div>
+
+{% else %}
+
+<div class="container-fluid">
+    <div class="card signin-card offset-md-2">
+      <div class="card-body">
+
+        <h3>Must be logged in before posting an Advert</h3>
+
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock%}
