@@ -111,11 +111,45 @@ h3 {
   height: auto;
 }
 
+.contact-seller {
+  margin: 4% auto;
+  height: auto;
+}
+
 .signin-card {
   width: 80%;
   height: auto;
   margin: 20vh auto;
   text-align: center;
+}
+
+.ad-form-card {
+  width: 80%;
+  height: auto;
+  margin: 20vh auto;
+}
+
+.ad-form p {
+  display: block;
+  margin: 4%;
+  font-weight: 500;
+}
+
+.ad-form input {
+  margin-left: 4%;
+}
+
+.ad-form select {
+  margin-left: 4%;
+}
+
+.ad-form textarea {
+  margin-left: 4%;
+  max-width: 100%;
+}
+
+.post-btn {
+  margin: 4% auto;
 }
 
 footer {

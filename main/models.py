@@ -19,7 +19,7 @@ class Advert(models.Model):
     )
 
     title = models.CharField(max_length=100, unique=False)
-    slug = AutoSlugField(populate_from='title')
+    slug = AutoSlugField(populate_from='title', unique_with='title')
     type = models.CharField(max_length=20, choices=TYPES, default="Firearm")
     featured_image = models.ImageField()
     item_make = models.CharField(max_length=100, unique=False)
@@ -43,8 +43,7 @@ class Advert(models.Model):
 
 class Message(models.Model):
 
-    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sender')
-    receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name='receiver')
+    sender = models.CharField(max_length=100)
     sender_email = models.EmailField()
     message_body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)

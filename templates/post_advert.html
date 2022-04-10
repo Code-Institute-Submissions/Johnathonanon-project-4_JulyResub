@@ -1,17 +1,19 @@
-{% extends base.html %}
+{% extends "base.html" %}
 
 {% block content %}
-
-{% load crispy_forms_tags %}
 
 {% if user.is_authenticated %}
 
 <div class="container-fluid">
-    <div class="card signin-card offset-md-2">
+    <div class="card ad-form-card offset-md-2">
       <div class="card-body">
 
         <h3>Post Advert</h3>
-        <form method="post">
+        
+        <form method="post" class="ad-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button class="btn btn-success post-btn" type="submit">Post Advert</button>
         </form>
 
         </div>

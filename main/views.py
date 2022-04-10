@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Advert
-from .forms import MessageForm
+from .forms import AdvertForm
+from django.views.generic.edit import FormView
 
 
 class AdvertList(generic.ListView):
@@ -18,5 +19,10 @@ class AdvertInfo(View):
 
         return render(request, "advert_info.html", {
             "advert": advert,
-            "message_form": MessageForm()
         })
+
+
+class PostAdvert(FormView):
+    template_name = 'post_advert.html'
+    form_class = AdvertForm
+    success_url = 'home'
