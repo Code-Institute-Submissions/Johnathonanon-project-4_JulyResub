@@ -10,7 +10,7 @@
 
         <h3>Post Advert</h3>
         
-        <form method="post" class="ad-form">
+        <form method="POST" enctype="multipart/form-data" class="ad-form">
           {% csrf_token %}
           {{ form.as_p }}
           <button class="btn btn-success post-btn" type="submit">Post Advert</button>

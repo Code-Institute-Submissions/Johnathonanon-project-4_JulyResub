@@ -1,108 +1,145 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Adventure Time RPG
 
-Welcome Johnathonanon,
+Adventure Time RPG is a python terminal text based Role Playing Game. It is based somewhat on retro games such as 'Zork' (1977) and tabletop games like Dungeons and Dragons. In this game the user or 'player' enters a name, chooses a player class; Archer, Warrior, or Wizard, and then embarks on a short adventure through the dungeon they find themselves in. There are monsters to battle, traps to try and avoid, and rooms to make your way through, until you conquer the dungeon. The live version is deployed on heroku.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+The live link can be found here - https://adventure-time-rpg.herokuapp.com/
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+Initial map drawn of dungeon and commands
 
-## Gitpod Reminders
+![Picture of Excalidraw map](readme-images/excalidraw1.png) 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+AmIResponsive snip
 
-`python3 -m http.server`
+![Picture of AmIResponsive snip](readme-images/amiresponsivesnip.PNG) 
 
-A blue button should appear to click: _Make Public_,
+## How to Play
 
-Another blue button should appear to click: _Open Browser_.
+The user is initially asked to input a name and choose a class. The 3 three classes are Archer, Warrior, and Wizard. These two choices then build a player 'character'. The players choice of class dictates their 'health point' and 'attack' attributes, which are randomly generated within a range for the specific class. These are relevant when battling monsters.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+![Picture of name snip](readme-images/namesnip.PNG)
 
-A blue button should appear to click: _Make Public_,
+![Picture of class choice snip](readme-images/classsnip.PNG)
 
-Another blue button should appear to click: _Open Browser_.
+![Picture of archer class attributes](readme-images/archersnip.PNG)
+![Picture of warrior class attributes](readme-images/warriorsnip.PNG)
+![Picture of wizard class attributes](readme-images/wizardsnip.PNG)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+The player navigates the dungeon via a 'menu'. This menu is navigated using the arrow keys and enter key. The player has 5 choices to choose from: 
+- Continue - this progresses the game to the next room if available, a short 'progress text' is printed to the terminal.
+- Inspect - a brief description of the current area is printed to the terminal.
+- Attack - a battle in initiated with a monster if present.
+- Interact - allows the player to interact with objects if applicable.
+- Flee - player flees the dungeon and ends game.
 
-To log into the Heroku toolbelt CLI:
+![Picture of menu snip](readme-images/menusnip.PNG)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Features
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Existing Features
 
-------
+- **Player Creation**
 
-## Release History
+  - User can create a 'custom' character. This includes entering a name, which defaults to 'Adventurer' if left empty, and choosing a class, with randomised stats.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+  ![Picture of class choice snip](readme-images/classsnip.PNG)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+  ![Picture of warrior class attributes](readme-images/warriorsnip.PNG)
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+- **Menu**
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+  - This is the main navigation tool of the game. Player has is given 5 choices:
+    - Continue - this progresses the game to the next room if available, player is presented with direction choices depending on current room. Current room is then updated and a short 'progress text' is printed to the terminal. If monster presence > 0 or current room is 6 player cannot progress. If chosen direction is death room, player 'dies'.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+    ![Picture of menu snip](readme-images/menusnip.PNG)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+    ![Picture of direction snip](readme-images/directionsnip.PNG)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+    ![Picture of no continue snip](readme-images/nocontinuesnip.PNG)
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+    ![Picture of death snip](readme-images/deathsnip.PNG)
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+    - Inspect - a brief description of the current area is printed to the terminal. Sometimes changes depending on in monster is 'dead' or 'alive'.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+    ![Picture of inspect snip 1](readme-images/inspectsnip1.PNG)
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+    ![Picture of inspect snip 2](readme-images/inspectsnip2.PNG)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+    - Attack - a battle in initiated with a monster if present. During the battle, the monster and player 'attack' each other and both their health points are reduced. If monster is defeated monster presence updates and player may continue to next room. If player is defeated game ends.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+    ![Picture of battle snip 1](readme-images/battlesnip1.PNG)
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+    ![Picture of battle snip 2](readme-images/battlesnip2.PNG)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+    ![Picture of battle snip 3](readme-images/battlesnip3.PNG)
 
-------
+    ![Picture of no battle snip](readme-images/nobattlesnip.PNG)
 
-## FAQ about the uptime script
+    ![Picture of defeat snip](readme-images/defeatsnip.PNG)
 
-**Why have you added this script?**
+    - Interact - allows the player to interact with objects if applicable or prints a message if not. Main interactable object is portal in room 6 which 'teleports' player back to room one. This is done by updating current room value.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+    ![Picture of interact snip 1](readme-images/interactsnip1.PNG)
 
-**How will this affect me?**
+    ![Picture of interact snip 2](readme-images/interactsnip2.PNG)
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+    - Flee - player flees the dungeon and ends game, a goodbye message is printed to terminal.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+    ![Picture of flee snip](readme-images/fleesnip.PNG)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+- **Data Structures**
 
-**So….?**
+  - The main data structure used in this application is room_list. This is a list of dictionaries, each dict representing a room in the dungeon. Each dict in the list has a different combination of keys and values depending on the 'room'. The player starts at room 0, index 0 in list, and this is updated to as player progresses through the dungeon. Every function uses the data stored in this list. Prints statements are retrieved, monster presence and instances are created using this data, next available room(s) displayed to the user, etc. 
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+  - Two classes are also used in this application, one for Player, and one Monster. Player is initialised at the very start as the 'player' variable and is used in ever function except for 'start'. The Monster class is initialised in the run_battle function and an instance created using the values in room_list as well as the monster_presence value.
 
-**Can I opt out?**
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+### Features Left to Implement
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+- One user stated they would like more classes and a larger dungeon. This could be implemented by adding extra 'rooms' with their associated data to the rooms list. Player classes could be done similarly, when creating a character extra choices could be offered to player and data could be stored in another list for example.
 
-**Anything more?**
+- I had intended originally to have the monsters, and their attributes, be randomly generated but in the end decided to just create instances based on the room. I could implement this in future by giving the function an assortment of monster class and hp/attack values to use, which would be stored in another data structure.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+- I had also intended to include a visual element to the application. I considered adding style to the terminal and page background themselves and also adding ascii art to the 'dungeon'. My mentor advised as this is a python project I should focus mainly on getting the actual logic functioning as intended and so the style was left on the long finger and ultimately discarded. This is something I would like to implement in future however as I feel it would only add to the application.
 
----
+- The application does not function on mobile. This is due to the 'enquiries' module. The lack of arrow keys makes navigation impossible. I brought this matter up with my mentor and was once again told that the actual logic was the most important aspect of this project but I should look into it. I then appealed for assistance in Slack and when I received no replies I contacted student tutoring services. It was recommended by them that I enquiry to student care about the assessment criterion of this project. I did this, and was told that it was not necessary, per the assessment criteria, for this application to be responsive on mobile devices at the pass level. This was my interpretation as well, so I made the choice to continue using the enquiries module as I felt it added functionality to the application that I wanted. If I were to add mobile functionality in the future I feel this would be very straightforward. I would either use inputs in conjunction with validation instead of the 'menu' or I would research and hopefully find a module with similar functionality as enquiries but responsive on mobile.
 
-Happy coding!
+## Testing
+The application has been consistently tested throughout its development by both myself and others. The gender and age of testers varied, with age ranging from 20s to 60s and testers having a diverse range of computer knowledge, and each tester found the application intuitive and easy to use.
+
+As mentioned, this site is not functional to its intended degree on mobile. All users who helped test this application were made aware of this and tested it on desktop/laptop devices and found it to be working correctly.
+ 
+Several bugs were found in development but all were corrected to the best of my knowledge at the submission of this project. 
+
+This project had one major direction change made at the behest of my mentor, which caused a larger rewriting of all major functions. This was difficult but improved the code by an appreciable margin and I feel it imporoved my knowledge and coding ability.
+
+All code was passed throught the PEP8 linter and confirmed OK. 
+
+### Validator Testing
+
+No errors returned from PEP8 linter - http://pep8online.com/
+
+### Unfixed Bugs
+
+- As mentioned above, the application does not function on mobile, however this was a design choice I made based on my own interpretation of assessment criteria, as well as input from my mentor and student care. I am including this here as it is something I can see myself changing in the future, just for the sake of perfectionism, but I am happy with the application as it stands.
+
+## Deployment
+
+- The site was deployed to Heroku. The steps to deploy are as follows:
+  - Create a heroku account
+  - Select create new app on heroku dashboard, and fill out necessary requirements (name, etc.).
+  - Once app is created, navigate to 'settings'. Set your config vars if relevant, for this project a key of PORT and value of 8000 were used. Add relevant buildpacks, for this project these were Python and Node.js. 
+  - Next navigate to 'deploy'. For this project the deployment method chosen was Github. The relevant github account and repository must be connected and then either manual or automatic deployment chosen.
+  - Once the app is succesfully built it will then be deployed and be 'live'
+
+The live link can be found here - https://adventure-time-rpg.herokuapp.com/
+
+## Credits
+
+Credit to Code Institute for mock terminal.
+
+I am hugely grateful to the Code Institute tutors, especially Jo, Kevin, and Ed for their patient help with this project. Without them it would not have gone nearly so smoothly, especially when a large rewrite was required.
+
+Minor inspiration was taken from https://thecodingpie.com/post/make-your-own-text-based-adventure-game-in-python3.
+
+My mentor was very helpful and his knowledge and experience is highly appreciated. His recommendation halfway through this project to rewrite most of the functions was daunting but ultimately improved the project and I believe (or at least hope) improved my abilities as a coder also.
+

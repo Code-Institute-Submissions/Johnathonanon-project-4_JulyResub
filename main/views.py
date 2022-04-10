@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Advert
 from .forms import AdvertForm
-from django.views.generic.edit import FormView
+from django.views.generic.edit import CreateView
 
 
 class AdvertList(generic.ListView):
@@ -22,7 +22,9 @@ class AdvertInfo(View):
         })
 
 
-class PostAdvert(FormView):
-    template_name = 'post_advert.html'
+class PostAdvert(CreateView):
+    model = Advert
     form_class = AdvertForm
+    template_name = 'post_advert.html'
     success_url = 'home'
+
