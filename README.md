@@ -1,51 +1,49 @@
 # Firearm Exchange Classified Advert Website
 
-Firearm Exchange is a fully-functioning, interactive web application. People who participate in Precision Rifle Series can use the web application to trade and sell firearms. Precision Rifle Series is a rifle-based shooting sport that has championship style competitiors. Points can be collected from competitions and is a hobby enjoyed by people across the world. Of course, there are other competitive shooting sports that can also gain benefit from using the web application. Users can log-in, sign-up, post an advert or comment on an advert to commumicate with the seller. An agreenment can be made between the seller and buyer. Currently, web applications that fit into this category are few and far between. The web application is not limited to firearms, but scopes, accessories and ammunition can be traded as well. 
+Firearm Exchange is a fully-functioning, interactive web application. People who participate in Precision Rifle Series can use the web application to trade and sell firearms. Precision Rifle Series is a rifle-based shooting sport that has championship style competitiors. Points can be collected from competitions and is a hobby enjoyed by people across the world. Of course, there are other competitive shooting sports that can also gain benefit from using the web application. Users can log-in, sign-up, post an advert and use contact information on an advert to commumicate with the seller. An agreenment can be made between the seller and buyer. Currently, web applications that fit into this category are few and far between. The web application is not limited to firearms, but scopes, accessories and ammunition can be traded as well. 
 
 
 
 The live link can be found here - https://8000-johnathonanon-project4-vpwamo79bvm.ws-eu39.gitpod.io/
 
-Initial map drawn of dungeon and commands
+Initial brainstorming, planning and pitch of the web application: 
 
-![Picture of Excalidraw map](static/readme_images/received_351242356963540.webp) 
+![Picture of planning diagram](static/readme_images/received_1181933939223231.webp) 
 
 AmIResponsive snip
 
-![Picture of AmIResponsive snip](readme-images/amiresponsivesnip.PNG) 
+![Picture of AmIResponsive snip](static/readme_images/amiresponsive.png) 
 
 ## How to use the Web Application
 
-The user is initially asked to input a name and choose a class. The 3 three classes are Archer, Warrior, and Wizard. These two choices then build a player 'character'. The players choice of class dictates their 'health point' and 'attack' attributes, which are randomly generated within a range for the specific class. These are relevant when battling monsters.
-
-![Picture of name snip](readme-images/namesnip.PNG)
-
-![Picture of class choice snip](readme-images/classsnip.PNG)
-
-![Picture of archer class attributes](readme-images/archersnip.PNG)
-![Picture of warrior class attributes](readme-images/warriorsnip.PNG)
-![Picture of wizard class attributes](readme-images/wizardsnip.PNG)
-
-The player navigates the dungeon via a 'menu'. This menu is navigated using the arrow keys and enter key. The player has 5 choices to choose from: 
-- Continue - this progresses the game to the next room if available, a short 'progress text' is printed to the terminal.
-- Inspect - a brief description of the current area is printed to the terminal.
-- Attack - a battle in initiated with a monster if present.
-- Interact - allows the player to interact with objects if applicable.
-- Flee - player flees the dungeon and ends game.
-
-![Picture of menu snip](readme-images/menusnip.PNG)
+The web application is used by users who wish to view adverts for firearm equipment, accessories, optics and ammunition. If the user wishes to post an advert to potentially sell or trade their item, they will need to create an account. This is done by clicking the "Register" button in the right hand corner of the header. Once done so, the user can log into their account and post an advert. Contact details should be inserted into the advert so that potential buyers can contact the seller. Once logged in, registered users can view their own adverts while also looking at adverts from other sellers. 
 
 ## Features
 
 ### Existing Features
 
-- **Player Creation**
+- **User Walkthrough**
 
-  - User can create a 'custom' character. This includes entering a name, which defaults to 'Adventurer' if left empty, and choosing a class, with randomised stats.
+The user is greeted with the home page intially. The header contains the logo on the left hand side, which if clicked brings the user back to the homepage. On the right hand side of the header we have "Home", which if clicked brings the user to the homepage. Not every user will be aware that the logo could also bring them back to the homepage, ergo, the "Home" button was implemented. 
 
-  ![Picture of class choice snip](readme-images/classsnip.PNG)
+Next to the "Home" button is the "Register" button. If this is clicked, the following page is displayed: 
+![Picture of Sign Up Page](static/readme_images/SignUp.png)
 
-  ![Picture of warrior class attributes](readme-images/warriorsnip.PNG)
+Next to the "Register" button is the "Login" button when clicked looks like the image below:
+![Picture of Login Page](static/readme_images/SignIn.png)
+
+
+
+
+
+
+
+
+![Picture of drop down menu](static/readme_images/dropdownmenu6.png)
+
+If "My Advert" is clicked on, this 
+
+
 
 - **Menu**
 

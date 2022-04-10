@@ -13,7 +13,6 @@
 
       <!-- Filtered Advert List -->
 
-      {% if advert.seller_id == request.user.id %}
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center">
           {% for advert in advert_list %}
           <div class="col-9 mb-3">
@@ -24,13 +23,12 @@
                       <p class="card-text ad-description">{{ advert.description }}</p>
                       <p class="card-text"><small class="text-muted">Advert created: {{ advert.created_on }}</small>
                       </p>
-                      <a href="{% url 'advert_info' advert.slug %}" class="btn btn-outline-dark">View Advert</a>
+                      <a href="{% url 'post_advert' %}" class="btn btn-outline-dark">Edit Advert</a>
                   </div>
               </div>
           </div>
           {% endfor %}
       </div>
-      {% endif %}
   </div>
 </div>
 
