@@ -96,6 +96,12 @@ h3 {
   text-align: center;
 }
 
+.ad-img-card {
+  width: 70%;
+  height: auto;
+  margin: auto 15%;
+}
+
 .ad-img {
   max-width: 100%;
   height: auto;
