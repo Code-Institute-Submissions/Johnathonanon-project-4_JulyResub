@@ -27,4 +27,3 @@ class PostAdvert(CreateView):
     form_class = AdvertForm
     template_name = 'post_advert.html'
     success_url = 'home'
-

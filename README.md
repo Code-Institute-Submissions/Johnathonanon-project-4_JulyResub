@@ -1,8 +1,10 @@
-# Adventure Time RPG
+# Firearm Exchange Classified Advert Website
 
-Adventure Time RPG is a python terminal text based Role Playing Game. It is based somewhat on retro games such as 'Zork' (1977) and tabletop games like Dungeons and Dragons. In this game the user or 'player' enters a name, chooses a player class; Archer, Warrior, or Wizard, and then embarks on a short adventure through the dungeon they find themselves in. There are monsters to battle, traps to try and avoid, and rooms to make your way through, until you conquer the dungeon. The live version is deployed on heroku.
+Firearm Exchange is a fully-functioning, interactive web application. People who participate in Precision Rifle Series can use the web application to trade and sell firearms. Precision Rifle Series is a rifle-based shooting sport that has championship style competitiors. Points can be collected from competitions and is a hobby enjoyed by people across the world. Of course, there are other competitive shooting sports that can also gain benefit from using the web application. Users can log-in, sign-up, post an advert or comment on an advert to commumicate with the seller. An agreenment can be made between the seller and buyer. Currently, web applications that fit into this category are few and far between. The web application is not limited to firearms, but scopes, accessories and ammunition can be traded as well. 
 
-The live link can be found here - https://adventure-time-rpg.herokuapp.com/
+
+
+The live link can be found here - https://8000-johnathonanon-project4-vpwamo79bvm.ws-eu39.gitpod.io/
 
 Initial map drawn of dungeon and commands
 
@@ -12,7 +14,7 @@ AmIResponsive snip
 
 ![Picture of AmIResponsive snip](readme-images/amiresponsivesnip.PNG) 
 
-## How to Play
+## How to use the Web Application
 
 The user is initially asked to input a name and choose a class. The 3 three classes are Archer, Warrior, and Wizard. These two choices then build a player 'character'. The players choice of class dictates their 'health point' and 'attack' attributes, which are randomly generated within a range for the specific class. These are relevant when battling monsters.
 
