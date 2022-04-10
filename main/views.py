@@ -1,19 +1,30 @@
+"""
+Imports
+"""
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
+from django.views.generic.edit import CreateView
 from .models import Advert
 from .forms import AdvertForm
-from django.views.generic.edit import CreateView
 
 
 class AdvertList(generic.ListView):
+    """
+    Generates list of advert objects to populate index.html
+    """
     model = Advert
     queryset = Advert.objects.order_by('-created_on')
     template_name = 'index.html'
 
 
 class AdvertInfo(View):
-
+    """
+    Allows user to view more information about a particular advert
+    """
     def get(self, request, slug, *args, **kwargs):
+        """
+        Gets and renders selected advert
+        """
         queryset = Advert.objects
         advert = get_object_or_404(queryset, slug=slug)
 
@@ -23,6 +34,9 @@ class AdvertInfo(View):
 
 
 class PostAdvert(CreateView):
+    """
+    Allows user to post an advert
+    """
     model = Advert
     form_class = AdvertForm
     template_name = 'post_advert.html'
@@ -36,11 +50,9 @@ class PostAdvert(CreateView):
 
 
 class MyAdvertList(generic.ListView):
-
-    def get(self, request, *args, **kwargs):
-        model = Advert
-        queryset = Advert.objects.filter(seller_id=request.user.id).order_by('-created_on')
-
-        return render(request, "my_adverts.html", {
-            "advert": Advert,
-        })
+    """
+    Generates list of users posted ads
+    """
+    model = Advert
+    queryset = Advert.objects.order_by('-created_on')
+    template_name = 'my_adverts.html'

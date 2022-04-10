@@ -2,36 +2,36 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
-<div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center">
-  {% for advert in advert_list %}
-  <div class="col-9 mb-3">
-      <div class="card mb-3">
-          <div class="card-body">
-              <img src="{{ advert.featured_image.url }}" class="card-img-top" alt="Image of item for sale">
-              <h4 class="card-title">{{ advert.title }}</h4>
-              <p class="card-text ad-description">{{ advert.description }}</p>
-              <p class="card-text"><small class="text-muted">Advert created: {{ advert.created_on }}</small>
-              </p>
-              <a href="{% url 'advert_info' advert.slug %}" class="btn btn-outline-dark">View Advert</a>
-          </div>
-      </div>
-  </div>
-  {% endfor %}
-</div>
-
-{% else %}
-
 <div class="container-fluid">
-    <div class="card signin-card offset-md-2">
-      <div class="card-body">
+  <div class="col-12">
 
-        <h3>Must be logged in</h3>
+      <!-- Section Heading -->
 
-        </div>
-    </div>
+      <div class="row">
+          <h2 class="section-title">My Adverts</h2>
+      </div>
+
+      <!-- Filtered Advert List -->
+
+      {% if advert.seller_id == request.user.id %}
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center">
+          {% for advert in advert_list %}
+          <div class="col-9 mb-3">
+              <div class="card mb-3">
+                  <div class="card-body">
+                      <img src="{{ advert.featured_image.url }}" class="card-img-top" alt="Image of item for sale">
+                      <h4 class="card-title">{{ advert.title }}</h4>
+                      <p class="card-text ad-description">{{ advert.description }}</p>
+                      <p class="card-text"><small class="text-muted">Advert created: {{ advert.created_on }}</small>
+                      </p>
+                      <a href="{% url 'advert_info' advert.slug %}" class="btn btn-outline-dark">View Advert</a>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+      {% endif %}
+  </div>
 </div>
-
-{% endif %}
 
 {% endblock%}

@@ -1,9 +1,16 @@
+"""
+Imports
+"""
 from django.db import models
 from django.contrib.auth.models import User
 from autoslug import AutoSlugField
 
 
 class Advert(models.Model):
+
+    """
+    Main Advert Model user can create Advert instance from
+    """
 
     TYPES = (
         ("firearm", "Firearm"),
@@ -27,14 +34,16 @@ class Advert(models.Model):
         max_length=100, unique=False, blank=True, default="N/A")
     price = models.DecimalField(max_digits=6, decimal_places=2)
     description = models.TextField()
-    seller = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='seller')
+    seller = models.ForeignKey(User, on_delete=models.CASCADE, related_name='seller')
     contact_details = models.CharField(max_length=100, unique=False, default="")
     created_on = models.DateField(auto_now_add=True)
 
     class Meta:
+
+        """
+        Meta Class
+        """
         ordering = ['-created_on']
 
     def __str__(self):
         return self.title
-
