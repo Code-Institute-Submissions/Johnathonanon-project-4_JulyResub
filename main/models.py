@@ -38,17 +38,3 @@ class Advert(models.Model):
     def __str__(self):
         return self.title
 
-
-class Message(models.Model):
-
-    sender = models.CharField(max_length=100)
-    sender_email = models.EmailField()
-    message_body = models.TextField()
-    created_on = models.DateTimeField(auto_now_add=True)
-    approved = models.BooleanField(default=False)
-
-    class Meta:
-        ordering = ['created_on']
-
-    def __str__(self):
-        return f"Message {self.message_body} by {self.sender}"

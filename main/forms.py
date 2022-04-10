@@ -1,5 +1,5 @@
 from django import forms
-from .models import Advert, Message
+from .models import Advert
 
 
 class AdvertForm(forms.ModelForm):
