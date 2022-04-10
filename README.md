@@ -8,7 +8,7 @@ The live link can be found here - https://8000-johnathonanon-project4-vpwamo79bv
 
 Initial map drawn of dungeon and commands
 
-![Picture of Excalidraw map](readme-images/excalidraw1.png) 
+![Picture of Excalidraw map](static/readme_images/received_351242356963540.webp) 
 
 AmIResponsive snip
 
