@@ -57,7 +57,9 @@
             <div class="card-body contact-seller">
                 <p>Posted on: {{ advert.created_on }}</p>
                 {% if user.is_authenticated %}
-                
+                <p>Contact Seller: {{ advert.contact_details }}</p>
+                {% else %}
+                <p>Please Register or Log In to contact seller</p>
                 {% endif %}
             </div>
         </div>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Advert
 from .forms import AdvertForm
@@ -28,5 +28,19 @@ class PostAdvert(CreateView):
     template_name = 'post_advert.html'
     success_url = 'home'
 
-    def set_seller(self, request):
-        form.instance.seller = request.user.username
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('home')
+
+
+class MyAdvertList(generic.ListView):
+
+    def get(self, request, *args, **kwargs):
+        model = Advert
+        queryset = Advert.objects.filter(seller_id=request.user.id).order_by('-created_on')
+
+        return render(request, "my_adverts.html", {
+            "advert": Advert,
+        })

@@ -30,7 +30,8 @@ class Advert(models.Model):
     price = models.DecimalField(max_digits=6, decimal_places=2)
     description = models.TextField()
     seller = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='seller_ad')
+        User, on_delete=models.CASCADE, related_name='seller')
+    contact_details = models.CharField(max_length=100, unique=False, default="")
     created_on = models.DateField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
 
