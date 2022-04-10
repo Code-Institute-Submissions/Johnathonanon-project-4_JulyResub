@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+<div class="container-fluid">
+    <div class="card ad-form-card offset-md-2">
+      <div class="card-body">
+
+        <h3>Edit Advert</h3>
+        
+        <form method="POST" enctype="multipart/form-data" class="ad-form">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button class="btn btn-success post-btn" type="submit">Post Advert</button>
+        </form>
+
+        </div>
+    </div>
+</div>
+
+{% else %}
+
+<div class="container-fluid">
+    <div class="card signin-card offset-md-2">
+      <div class="card-body">
+
+        <h3>Must be logged in before posting an Advert</h3>
+
+        </div>
+    </div>
+</div>
+
+{% endif %}
+
+{% endblock%}
