@@ -5,8 +5,8 @@ from .models import Advert, Message
 @admin.register(Advert)
 class AdvertAdmin(admin.ModelAdmin):
 
-    list_filter = ('status', 'created_on')
-    list_display = ('title', 'seller', 'status', 'created_on')
+    list_filter = ('created_on',)
+    list_display = ('title', 'seller', 'created_on')
     search_fields = ['title', 'description', 'firearm_make']
 
 

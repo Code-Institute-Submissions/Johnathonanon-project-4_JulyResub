@@ -2,8 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from autoslug import AutoSlugField
 
-STATUS = ((0, "Draft"), (1, "Published"))
-
 
 class Advert(models.Model):
 
@@ -33,7 +31,6 @@ class Advert(models.Model):
         User, on_delete=models.CASCADE, related_name='seller')
     contact_details = models.CharField(max_length=100, unique=False, default="")
     created_on = models.DateField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
         ordering = ['-created_on']
