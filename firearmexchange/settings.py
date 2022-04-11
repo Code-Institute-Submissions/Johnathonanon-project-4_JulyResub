@@ -34,6 +34,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEBUG = False
 
+X-FRAME_OPTIONS = 'SAMEORIGIN'
+
 ALLOWED_HOSTS = ["firearmexchange.herokuapp.com", "localhost"]
 
 # Application definition
