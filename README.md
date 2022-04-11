@@ -25,83 +25,60 @@ The web application is used by users who wish to view adverts for firearm equipm
 - **User Walkthrough**
 
 The user is greeted with the home page intially. The header contains the logo on the left hand side, which if clicked brings the user back to the homepage. On the right hand side of the header we have "Home", which if clicked brings the user to the homepage. Not every user will be aware that the logo could also bring them back to the homepage, ergo, the "Home" button was implemented. 
-
-Next to the "Home" button is the "Register" button. If this is clicked, the following page is displayed: 
+![Picture of Index Page - logged out](static/readme_images/indexpage1.png)
+Next to the "Home" button is the "Register" button. If "Register" is clicked, the following page is displayed: 
 ![Picture of Sign Up Page](static/readme_images/SignUp.png)
 
 Next to the "Register" button is the "Login" button when clicked looks like the image below:
 ![Picture of Login Page](static/readme_images/SignIn.png)
 
+To create an account with Firearm Exchange, simply click "Register" and fill out the required information. See image below for guidance:
+![Picture of Filling out Registration Details](static/readme_images/RegisteringInfo.png)
 
+Once Registration information is filled in, click the green "Sign Up" button. Now that an account has been created, clicking the "Login" button and filling out the same information used to register the account will allow us to sign into the account. Once the screen looks like the image below, you are ready to sign in to the account by clicking the green "Sign In" button.
 
+![Picture of Filling out Signing In Details to Login](static/readme_images/Signingintoaccount.png)
 
+After logging into the account, the header will then look like the below image:
+![Picture of Header after Logging In](static/readme_images/afterloggingin.png)
 
-
-
+On the right hand side, the "Home" button is still present and will bring you to the homepage of the web application. Next to that is a drop down menu named "My F|E". If clicked this will display the following option:
 
 ![Picture of drop down menu](static/readme_images/dropdownmenu6.png)
 
-If "My Advert" is clicked on, this 
+If "My Advert" is clicked on, this will bring the web application user to the accounts list of posted adverts on Eirearm Exchange. Since this account does not have any listed adverts, this page is blank for now. 
+![Picture of Blank My Adverts List](static/readme_images/myadvertsblank.png)
+And with a populated list.
+![Picture of Populated My Adverts List](static/readme_images/myadvertspopulated.png)
 
+Next to the "My F|E" drop down menu is the "Logout" button. If clicked this will promptly log the user out of their account. This Button only appears if the user is logged into the web application. Next to the "Logout" button is the green "Post Advert" button. If clicked, it will bring the user to this page: 
+![Picture of Blank Post Advert Page](static/readme_images/AdvertBlank.png)
 
+If All of the information is filled out, the web application user can click "Post Advert". This will allow the user to post an advert about their item that they wish to sell or trade. See the image below as an example:
+![Picture of Filled in Information Post Advert Page](static/readme_images/blasteradexample.png)
 
-- **Menu**
+Once information is filled in to the users desire, the advert can be posted by clicking the green button "Post Advert".
 
-  - This is the main navigation tool of the game. Player has is given 5 choices:
-    - Continue - this progresses the game to the next room if available, player is presented with direction choices depending on current room. Current room is then updated and a short 'progress text' is printed to the terminal. If monster presence > 0 or current room is 6 player cannot progress. If chosen direction is death room, player 'dies'.
+Adverts are then used to populate the "Latest Adverts" list on the home page.
+![Picture of Index Page - logged in](static/readme_images/indexpage2.png)
 
-    ![Picture of menu snip](readme-images/menusnip.PNG)
-
-    ![Picture of direction snip](readme-images/directionsnip.PNG)
-
-    ![Picture of no continue snip](readme-images/nocontinuesnip.PNG)
-
-    ![Picture of death snip](readme-images/deathsnip.PNG)
-
-    - Inspect - a brief description of the current area is printed to the terminal. Sometimes changes depending on in monster is 'dead' or 'alive'.
-
-    ![Picture of inspect snip 1](readme-images/inspectsnip1.PNG)
-
-    ![Picture of inspect snip 2](readme-images/inspectsnip2.PNG)
-
-    - Attack - a battle in initiated with a monster if present. During the battle, the monster and player 'attack' each other and both their health points are reduced. If monster is defeated monster presence updates and player may continue to next room. If player is defeated game ends.
-
-    ![Picture of battle snip 1](readme-images/battlesnip1.PNG)
-
-    ![Picture of battle snip 2](readme-images/battlesnip2.PNG)
-
-    ![Picture of battle snip 3](readme-images/battlesnip3.PNG)
-
-    ![Picture of no battle snip](readme-images/nobattlesnip.PNG)
-
-    ![Picture of defeat snip](readme-images/defeatsnip.PNG)
-
-    - Interact - allows the player to interact with objects if applicable or prints a message if not. Main interactable object is portal in room 6 which 'teleports' player back to room one. This is done by updating current room value.
-
-    ![Picture of interact snip 1](readme-images/interactsnip1.PNG)
-
-    ![Picture of interact snip 2](readme-images/interactsnip2.PNG)
-
-    - Flee - player flees the dungeon and ends game, a goodbye message is printed to terminal.
-
-    ![Picture of flee snip](readme-images/fleesnip.PNG)
 
 - **Data Structures**
 
-  - The main data structure used in this application is room_list. This is a list of dictionaries, each dict representing a room in the dungeon. Each dict in the list has a different combination of keys and values depending on the 'room'. The player starts at room 0, index 0 in list, and this is updated to as player progresses through the dungeon. Every function uses the data stored in this list. Prints statements are retrieved, monster presence and instances are created using this data, next available room(s) displayed to the user, etc. 
+  - The main data structure used in this application is Advert Model.
 
   - Two classes are also used in this application, one for Player, and one Monster. Player is initialised at the very start as the 'player' variable and is used in ever function except for 'start'. The Monster class is initialised in the run_battle function and an instance created using the values in room_list as well as the monster_presence value.
 
 
 ### Features Left to Implement
 
-- One user stated they would like more classes and a larger dungeon. This could be implemented by adding extra 'rooms' with their associated data to the rooms list. Player classes could be done similarly, when creating a character extra choices could be offered to player and data could be stored in another list for example.
+- A Search bar was orginally planned to be in the project. This would allow the user of the web application to search for desired adverts and find what they were looking for with ease. Time did not permit this feature to be fully implemented. 
 
-- I had intended originally to have the monsters, and their attributes, be randomly generated but in the end decided to just create instances based on the room. I could implement this in future by giving the function an assortment of monster class and hp/attack values to use, which would be stored in another data structure.
+- A messaging system was attempted to implement into the web application. The purpose was to allow user to user private interaction. This would allow communication between potential buyers and sellers. After much effort, tutoring support said the task would be too complicated and insinuated that it would be best to leave this feature on the back burner. 
 
-- I had also intended to include a visual element to the application. I considered adding style to the terminal and page background themselves and also adding ascii art to the 'dungeon'. My mentor advised as this is a python project I should focus mainly on getting the actual logic functioning as intended and so the style was left on the long finger and ultimately discarded. This is something I would like to implement in future however as I feel it would only add to the application.
+- A tag system. Tags would appear at the bottom of an advert that a seller could decide on. If the advert was about an optics item, they could tag the bottom of the advert page with #opticalequipment and that would allow users who use similar words with the search function to ping the advert not only through words used, but also tags. 
 
-- The application does not function on mobile. This is due to the 'enquiries' module. The lack of arrow keys makes navigation impossible. I brought this matter up with my mentor and was once again told that the actual logic was the most important aspect of this project but I should look into it. I then appealed for assistance in Slack and when I received no replies I contacted student tutoring services. It was recommended by them that I enquiry to student care about the assessment criterion of this project. I did this, and was told that it was not necessary, per the assessment criteria, for this application to be responsive on mobile devices at the pass level. This was my interpretation as well, so I made the choice to continue using the enquiries module as I felt it added functionality to the application that I wanted. If I were to add mobile functionality in the future I feel this would be very straightforward. I would either use inputs in conjunction with validation instead of the 'menu' or I would research and hopefully find a module with similar functionality as enquiries but responsive on mobile.
+- A commenting system on the advert. This was attempted, and followed the tutorial provided by the module but actually getting it to be fully working was just out of my grasp. I would be reminded by tutoring support that I should go to my mentor with this issue, but when doing so, my mentor would tell me to go to tutoring support. The full circle process would take hours. 
 
 ## Testing
 The application has been consistently tested throughout its development by both myself and others. The gender and age of testers varied, with age ranging from 20s to 60s and testers having a diverse range of computer knowledge, and each tester found the application intuitive and easy to use.
