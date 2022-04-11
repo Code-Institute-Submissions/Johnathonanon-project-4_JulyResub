@@ -85,13 +85,13 @@ The application has been consistently tested throughout its development by both 
  
 Several bugs were found in development but all were corrected to the best of my knowledge at the submission of this project. 
 
-The site had many issues during production but these were ultimately rectified
+The site had many issues during production but these were ultimately rectified thanks to help from tutor support, online resource, and avid troublshooting.
 
-All code was passed throught the PEP8 linter and confirmed OK. 
+All code was passed throught the PEP8 linter and passing ok.
 
 ### Validator Testing
 
-No errors returned from PEP8 linter - http://pep8online.com/
+PEP8 linter - http://pep8online.com/
 
 ### Unfixed Bugs
 
