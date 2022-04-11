@@ -1,10 +1,10 @@
 # Firearm Exchange Classified Advert Website
 
-Firearm Exchange is a fully-functioning, interactive web application. People who participate in Precision Rifle Series can use the web application to trade and sell firearms. Precision Rifle Series is a rifle-based shooting sport that has championship style competitiors. Points can be collected from competitions and is a hobby enjoyed by people across the world. Of course, there are other competitive shooting sports that can also gain benefit from using the web application. Users can log-in, sign-up, post an advert and use contact information on an advert to commumicate with the seller. An agreenment can be made between the seller and buyer. Currently, web applications that fit into this category are few and far between. The web application is not limited to firearms, but scopes, accessories and ammunition can be traded as well. 
+Firearm Exchange is a fully-functioning, interactive web application biuilt using django, postgresql, bootstrap and deployed to heroku. People who participate in Precision Rifle Series can use the web application to trade and sell firearms. Precision Rifle Series is a rifle-based shooting sport that has championship style competitiors. Points can be collected from competitions and is a hobby enjoyed by people across the world. Of course, there are other competitive shooting sports that can also gain benefit from using the web application. Users can log-in, sign-up, post an advert and use contact information on an advert to commumicate with the seller. An agreenment can be made between the seller and buyer. Currently, web applications that fit into this category are few and far between. The web application is not limited to firearms, but scopes, accessories and ammunition can be traded as well. 
 
 
 
-The live link can be found here - https://8000-johnathonanon-project4-vpwamo79bvm.ws-eu39.gitpod.io/
+The live link can be found here - https://firearmexchange.herokuapp.com/
 
 Initial brainstorming, planning and pitch of the web application: 
 
@@ -63,11 +63,11 @@ Adverts are then used to populate the "Latest Adverts" list on the home page.
 ![Picture of Index Page - logged in](static/readme_images/indexpage2.png)
 
 
-- **Data Structures**
+- **Back End**
 
-  - The main data structure used in this application is Advert Model.
+  - The main data structure used in this application is the Advert Model. This is then used to populate a form, which in turn is rendered to the user via a view, and a template, and allows them to create an advert. The index page populates a list of all Advert objects in the databse sorting by most recently created. 
 
-  - Two classes are also used in this application, one for Player, and one Monster. Player is initialised at the very start as the 'player' variable and is used in ever function except for 'start'. The Monster class is initialised in the run_battle function and an instance created using the values in room_list as well as the monster_presence value.
+  - The My Adverts page allows users to view their own posted adverts with the option to edit or delete as required. Thus full CRUD functionality is implemented.
 
 
 ### Features Left to Implement
@@ -82,12 +82,10 @@ Adverts are then used to populate the "Latest Adverts" list on the home page.
 
 ## Testing
 The application has been consistently tested throughout its development by both myself and others. The gender and age of testers varied, with age ranging from 20s to 60s and testers having a diverse range of computer knowledge, and each tester found the application intuitive and easy to use.
-
-As mentioned, this site is not functional to its intended degree on mobile. All users who helped test this application were made aware of this and tested it on desktop/laptop devices and found it to be working correctly.
  
 Several bugs were found in development but all were corrected to the best of my knowledge at the submission of this project. 
 
-This project had one major direction change made at the behest of my mentor, which caused a larger rewriting of all major functions. This was difficult but improved the code by an appreciable margin and I feel it imporoved my knowledge and coding ability.
+The site had many issues during production but these were ultimately rectified
 
 All code was passed throught the PEP8 linter and confirmed OK. 
 
@@ -97,26 +95,24 @@ No errors returned from PEP8 linter - http://pep8online.com/
 
 ### Unfixed Bugs
 
-- As mentioned above, the application does not function on mobile, however this was a design choice I made based on my own interpretation of assessment criteria, as well as input from my mentor and student care. I am including this here as it is something I can see myself changing in the future, just for the sake of perfectionism, but I am happy with the application as it stands.
+- Unaware of unfixed bigs at time of submission
 
 ## Deployment
 
 - The site was deployed to Heroku. The steps to deploy are as follows:
   - Create a heroku account
   - Select create new app on heroku dashboard, and fill out necessary requirements (name, etc.).
-  - Once app is created, navigate to 'settings'. Set your config vars if relevant, for this project a key of PORT and value of 8000 were used. Add relevant buildpacks, for this project these were Python and Node.js. 
+  - Select to add postgresql databse to app.
+  - Once app is created, navigate to 'settings'. Set your config vars ie. database url, secret key. 
   - Next navigate to 'deploy'. For this project the deployment method chosen was Github. The relevant github account and repository must be connected and then either manual or automatic deployment chosen.
   - Once the app is succesfully built it will then be deployed and be 'live'
 
-The live link can be found here - https://adventure-time-rpg.herokuapp.com/
+The live link can be found here - https://firearmexchange.herokuapp.com/
 
 ## Credits
 
-Credit to Code Institute for mock terminal.
+I am grateful to the Code Institute tutors for their patient help with this project. Without them it would not have gone nearly so smoothly.
 
-I am hugely grateful to the Code Institute tutors, especially Jo, Kevin, and Ed for their patient help with this project. Without them it would not have gone nearly so smoothly, especially when a large rewrite was required.
+My mentor was very helpful and his knowledge and experience is highly appreciated.
 
-Minor inspiration was taken from https://thecodingpie.com/post/make-your-own-text-based-adventure-game-in-python3.
-
-My mentor was very helpful and his knowledge and experience is highly appreciated. His recommendation halfway through this project to rewrite most of the functions was daunting but ultimately improved the project and I believe (or at least hope) improved my abilities as a coder also.
-
+Many elements of this project were created using bootstrap official docs - https://getbootstrap.com/docs/5.1/getting-started/introduction/
