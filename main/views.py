@@ -1,9 +1,10 @@
 """
 Imports
 """
+from django.urls import reverse_lazy
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Advert
 from .forms import AdvertForm
 
@@ -40,15 +41,31 @@ class PostAdvert(CreateView):
     model = Advert
     form_class = AdvertForm
     template_name = 'post_advert.html'
-    success_url = 'home'
+    success_url = reverse_lazy('home')
 
-    def post(self, request, *args, **kwargs):
-        print("processing form")
-        form = self.form_class(request.POST)
-        if form.is_valid():
-            print("about to save form")
-            form.save()
-        return redirect('home')
+    def form_valid(self, form):
+        form.instance.seller = self.request.user
+        return super().form_valid(form)
+
+
+class UpdateAdvert(UpdateView):
+    """
+    Allows user to edit an advert
+    """
+    model = Advert
+    form_class = AdvertForm
+    template_name = 'edit_advert.html'
+    success_url = reverse_lazy('home')
+
+
+class DeleteAdvert(DeleteView):
+    """
+    Allows user to delete an advert
+    """
+    model = Advert
+    form_class = AdvertForm
+    template_name = 'delete_advert.html'
+    success_url = reverse_lazy('home')
 
 
 class MyAdvertList(generic.ListView):

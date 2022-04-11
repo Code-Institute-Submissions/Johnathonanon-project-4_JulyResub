@@ -23,7 +23,8 @@
                       <p class="card-text ad-description">{{ advert.description }}</p>
                       <p class="card-text"><small class="text-muted">Advert created: {{ advert.created_on }}</small>
                       </p>
-                      <a href="#" class="btn btn-outline-dark">Edit Advert</a>
+                      <a href="{% url 'edit_advert' advert.slug %}" class="btn btn-success">Edit Advert</a>
+                      <a href="{% url 'delete_advert' advert.slug %}" class="btn btn-danger">Delete Advert</a>
                   </div>
               </div>
           </div>
