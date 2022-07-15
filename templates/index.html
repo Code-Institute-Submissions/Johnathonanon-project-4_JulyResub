@@ -2,41 +2,68 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="col-12">
+<div class="container-fluid ad-list-bg">
 
-        <!-- Banner Image -->
-
-        <div class="row banner">
-            <div class="bg-image d-flex justify-content-center align-items-center">
-            </div>
-        </div>
- 
-        <!-- Section Heading -->
-
-        <div class="row">
-            <h2 class="section-title">Latest Adverts</h2>
-        </div>
-
-        <!-- Advert List -->
-
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center">
-            {% for advert in advert_list %}
-            <div class="col-9 mb-3">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <img src="{{ advert.featured_image.url }}" class="card-img-top" alt="Image of item for sale">
-                        <h4 class="card-title">{{ advert.title }}</h4>
-                        <p class="card-text ad-description">{{ advert.description }}</p>
-                        <p class="card-text"><small class="text-muted">Advert created: {{ advert.created_on }}</small>
-                        </p>
-                        <a href="{% url 'advert_info' advert.slug %}" class="btn btn-outline-dark">View Advert</a>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
+    <!-- Banner Image -->
+    <div class="row banner">
+        <div class="bg-image d-flex justify-content-center align-items-center">
         </div>
     </div>
+
+    <!-- Section Heading -->
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h2 class="logo">Latest Adverts</h2>
+            <hr class="w-50 mb-4 mx-auto">
+        </div>
+    </div>
+
+    <!-- Advert List -->
+    <div class="row">
+        <div class="col-10 offset-1 p-0">
+            <div class="row">
+                {% for advert in advert_list %}
+                <div class="col-12 col-xl-8 offset-xl-2 my-2">
+                    <div class="card h-100">
+                        <div class="row g-0">
+                            <div class="col-md-4 my-auto">
+                                {% if advert.featured_image %}
+                                <a href="{% url 'advert_info' advert.slug %}">
+                                <img class="img-fluid rounded-0 p-2" src="{{ advert.featured_image.url }}"
+                                    alt="{{ advert.title }}">
+                                </a>
+                                {% else %}
+                                <a href="{% url 'advert_info' advert.slug %}">
+                                <img class="img-fluid rounded-0 p-2"
+                                    src="{% if DEBUG %}{{ MEDIA_URL }}noimage.png{% else %}https://res.cloudinary.com/dgosfiw2e/image/upload/v1657483621/media/noimage_mpqe58.png{% endif %}"
+                                    alt="{{ advert.title }}">
+                                </a>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-header text-center">
+                                    <h5 class="my-auto">{{ advert.title }}</h5>
+                                </div>
+                                <div class="card-body py-1">
+                                    <p class="card-title">{{ advert.description|truncatechars:50  }}</p>
+                                </div>
+                                <div class="card-footer bg-white pt-0 border-0 text-left">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left fw-bold">€{{ advert.price }}</p>
+                                            <p>{{ advert.created_on }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
 </div>
 
 {% endblock %}

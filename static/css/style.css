@@ -1,17 +1,15 @@
 html {
-  position: relative;
-  min-height: 100vh;
+  height: 100%;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 body {
-  height: 100%;
-  margin-bottom: 60px;
+  height: 100vh;
   background-color: rgba(242, 242, 242, 1);
   font-family: 'Noto Sans', sans-serif;
 }
 
 h1, h2{
-  text-align: center;
   font-weight: 500;
   font-family: 'Noto Sans', sans-serif;
 }
@@ -19,32 +17,25 @@ h1, h2{
 h3 {
   font-weight: 400;
   font-family: 'Noto Sans', sans-serif;
-  text-align: center;
 }
 
 .navbar-brand {
   font-size: 200%;
 }
 
-.section-title {
-  text-align: center;
-  margin: 4% auto;
-}
-
 .banner {
   background: url('https://res.cloudinary.com/dgosfiw2e/image/upload/v1657890093/media/banner_img_cbkslq.jpg');
   height: 40vh; 
+  width: 100%;
   background-size: cover;
 }
 
-.searchbar {
-  width: 80%;
-  max-width: 50vh;
+.ad-list-bg {
+  min-height: 100vh;
 }
 
-.search-btn {
-  width: 100%;
-  margin-top: 2%;
+.ad-col {
+  height: 200px;
 }
 
 .ad-description, .card-title {
@@ -54,28 +45,28 @@ h3 {
 }
 
 .fa-info {
-  background-image: url('/static/images/frankie-lu-mvSnr7qxzPM-unsplash.jpg');
+  background-image: url('https://res.cloudinary.com/dgosfiw2e/image/upload/v1657912463/media/showroom_isxqk2.jpg');
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .op-info {
-  background-image: url('/static/images/manuel-t-UQEWkszc3mY-unsplash.jpg');
+  background-image: url('https://res.cloudinary.com/dgosfiw2e/image/upload/v1657912392/media/optic_gdrxjl.jpg');
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .ac-info {
-  background-image: url('/static/images/lauren-wyckoff-SrWw838OBWQ-unsplash.jpg');
+  background-image: url('https://res.cloudinary.com/dgosfiw2e/image/upload/v1657912427/media/accessory_dpx6lv.jpg');
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
 .default-info {
-  background-image: url('/static/images/david-leveque-21-lfJcLMVw-unsplash.jpg');
+  background-image: url('https://res.cloudinary.com/dgosfiw2e/image/upload/v1657912339/media/ammo_pzr5re.jpg');
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -159,12 +150,6 @@ h3 {
   margin: 4% auto;
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+.footer {
   height: 60px;
-  line-height: 60px;
-  background-color: #212529;
-  text-align: center;
 }
