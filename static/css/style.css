@@ -32,10 +32,9 @@ h3 {
 }
 
 .banner {
-  background-image: url('/static/images/thomas-tucker-2q3RH6grop4-unsplash (1).jpg');
+  background: url('https://res.cloudinary.com/dgosfiw2e/image/upload/v1657890093/media/banner_img_cbkslq.jpg');
   height: 40vh; 
   background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .searchbar {
