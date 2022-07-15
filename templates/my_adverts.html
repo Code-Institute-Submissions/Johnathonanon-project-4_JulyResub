@@ -2,35 +2,56 @@
 
 {% block content %}
 
-<div class="container-fluid">
-  <div class="col-12">
+<div class="container-fluid my-ads-bg">
+    <div class="col-12">
 
-      <!-- Section Heading -->
+        <!-- Section Heading -->
 
-      <div class="row">
-          <h2 class="section-title">My Adverts</h2>
-      </div>
+        <div class="row">
+            <div class="col text-center mt-3">
+                <h2>My Adverts</h2>
+                <hr class="w-50 mb-4 mx-auto">
+            </div>
+        </div>
 
-      <!-- Filtered Advert List -->
-
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center">
-          {% for advert in advert_list %}
-          <div class="col-9 mb-3">
-              <div class="card mb-3">
-                  <div class="card-body">
-                      <img src="{{ advert.featured_image.url }}" class="card-img-top" alt="Image of item for sale">
-                      <h4 class="card-title">{{ advert.title }}</h4>
-                      <p class="card-text ad-description">{{ advert.description }}</p>
-                      <p class="card-text"><small class="text-muted">Advert created: {{ advert.created_on }}</small>
-                      </p>
-                      <a href="{% url 'edit_advert' advert.slug %}" class="btn btn-success">Edit Advert</a>
-                      <a href="{% url 'delete_advert' advert.slug %}" class="btn btn-danger">Delete Advert</a>
-                  </div>
-              </div>
-          </div>
-          {% endfor %}
-      </div>
-  </div>
+        <!-- Filtered Advert List -->
+        <div class="row">
+            {% for advert in advert_list %}
+            <div class="col-md-4 col-lg-3 mb-3 d-flex align-items-stretch">
+                <div class="card rounded-0">
+                    <div class="card-header text-center">
+                        <h5 class="my-auto">{{ advert.title }}</h5>
+                    </div>
+                    {% if advert.featured_image %}
+                    <a href="{% url 'advert_info' advert.slug %}">
+                        <img class="card-img-top p-4 my-auto rounded-0" src="{{ advert.featured_image.url }}"
+                            alt="{{ advert.title }}">
+                    </a>
+                    {% else %}
+                    <a href="{% url 'advert_info' advert.slug %}">
+                        <img class="card-img-top p-4 my-auto rounded-0"
+                            src="{% if DEBUG %}{{ MEDIA_URL }}noimage.png{% else %}https://res.cloudinary.com/dgosfiw2e/image/upload/v1657483621/media/noimage_mpqe58.png{% endif %}"
+                            alt="{{ advert.title }}">
+                    </a>
+                    {% endif %}
+                    <div class="card-body">
+                    </div>
+                    <div class="card-footer bg-white pt-0 border-0 text-left">
+                        <div class="row">
+                            <div class="col">
+                                <p class="card-text">{{ advert.description|truncatechars:100 }}</p>
+                                <p class="lead mb-0 text-left fw-bold">€{{ advert.price }}</p>
+                                <p>{{ advert.created_on }}</p>
+                                <a href="{% url 'edit_advert' advert.slug %}" class="btn btn-success">Edit Advert</a>
+                                <a href="{% url 'delete_advert' advert.slug %}" class="btn btn-danger">Delete Advert</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </div>
 
 {% endblock%}
