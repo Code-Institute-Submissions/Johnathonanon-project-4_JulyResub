@@ -5,8 +5,8 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="container-fluid">
-  <div class="card signin-card offset-md-2">
+<div class="container-fluid auth-container">
+  <div class="card mx-auto my-5 rounded-0">
     <div class="card-body">
       <h1>{% trans "Sign Up" %}</h1>
 
@@ -14,11 +14,11 @@
 
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form|crispy}}
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button class="btn btn-success" type="submit">{% trans "Sign Up" %} &raquo;</button>
+        <button class="btn btn-success rounded-0" type="submit">{% trans "Sign Up" %} &raquo;</button>
       </form>
     </div>
   </div>

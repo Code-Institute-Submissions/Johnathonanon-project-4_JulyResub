@@ -17,8 +17,8 @@
               {% csrf_token %}
               {{ form | crispy }}
               <div class="text-end my-4">
-                  <a class="btn btn-success post-btn rounded-0" href="{% url 'my_adverts' %}">Cancel</a>
-                  <button class="btn btn-success post-btn rounded-0" type="submit">Update Advert</button>
+                  <a class="btn btn-success rounded-0" href="{% url 'my_adverts' %}">Cancel</a>
+                  <button class="btn btn-success rounded-0" type="submit">Update Advert</button>
               </div>
           </form>
       </div>            

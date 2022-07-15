@@ -145,40 +145,15 @@ h3 {
   max-width: 600px;
 }
 
-.signin-card {
-  width: 80%;
-  height: auto;
-  margin: 20vh auto;
-  text-align: center;
+.auth-container {
+  min-height: 90vh;
+  max-width: 800px;
 }
 
-.ad-form-card {
-  width: 80%;
-  height: auto;
-  margin: 20vh auto;
-}
-
-.ad-form p {
-  display: block;
-  margin: 4%;
-  font-weight: 500;
-}
-
-.ad-form input {
-  margin-left: 4%;
-}
-
-.ad-form select {
-  margin-left: 4%;
-}
-
-.ad-form textarea {
-  margin-left: 4%;
-  max-width: 100%;
-}
-
-.post-btn {
-  margin: 4% auto;
+.auth-container input {
+  border-color: #212529;
+  border-radius: 0;
+  max-width: 500px;
 }
 
 .footer {

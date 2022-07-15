@@ -5,7 +5,7 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="container-fluid auth-container">
   <div class="card signin-card offset-md-2">
     <div class="card-body">
       <h1>{% trans "Sign Out" %}</h1>
@@ -17,8 +17,8 @@
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
         {% endif %}
-        <button class="btn btn-danger" type="submit">{% trans 'Sign Out' %}</button>
-        <a href="/" class="btn btn-success">Cancel</a>
+        <button class="btn btn-danger rounded-0" type="submit">{% trans 'Sign Out' %}</button>
+        <a href="/" class="btn btn-success rounded-0">Cancel</a>
       </form>
     </div>
   </div>

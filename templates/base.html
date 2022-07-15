@@ -55,7 +55,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           My F|E
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu rounded-0" aria-labelledby="navbarDropdown">
                           <li><a class="dropdown-item" href="{% url 'my_adverts' %}">My Adverts</a></li>
                         </ul>
                     </li>
@@ -63,7 +63,7 @@
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'post_advert' %}" class="btn btn-success">Post Advert</a>
+                        <a href="{% url 'post_advert' %}" class="btn btn-success rounded-0">Post Advert</a>
                     </li>
                     {% else %}
                     <li class="nav-item">
@@ -87,7 +87,7 @@
 
     <!-- Footer -->
     <footer class="footer bg-dark text-center">
-        <p class="text-muted py-3">&copy; John Conry 2022</p>
+        <p class="text-light py-3">&copy; John Conry 2022</p>
     </footer>
 
 </body>
