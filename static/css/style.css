@@ -132,6 +132,19 @@ h3 {
   min-height: 90vh;
 }
 
+.edit-ad-bg {
+  min-height: 90vh;
+}
+
+.form input,
+.form textarea,
+.form select,
+.input-group {
+  border-radius: 0;
+  border-color: #212529;
+  max-width: 600px;
+}
+
 .signin-card {
   width: 80%;
   height: auto;

@@ -2,36 +2,27 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
+<div class="container-fluid edit-ad-bg mx-auto">
+  <div class="row">
+      <div class="col-12 col-md-6 mx-auto text-center">
+          <hr>
+          <h5>Edit Advert</h5>
+          <hr>
+      </div>
+  </div>
 
-<div class="container-fluid">
-    <div class="card ad-form-card offset-md-2">
-      <div class="card-body">
-
-        <h3>Edit Advert</h3>
-        
-        <form method="POST" enctype="multipart/form-data" class="ad-form">
-          {% csrf_token %}
-          {{ form.as_p }}
-          <button class="btn btn-success post-btn" type="submit">Post Advert</button>
-        </form>
-
-        </div>
-    </div>
-</div>
-
-{% else %}
-
-<div class="container-fluid">
-    <div class="card signin-card offset-md-2">
-      <div class="card-body">
-
-        <h3>Must be logged in before posting an Advert</h3>
-
-        </div>
-    </div>
-</div>
-
-{% endif %}
+  <div class="row">
+      <div class="col-12 col-md-6 mx-auto">
+          <form method="POST" action="{% url 'edit_advert' advert.id %}" class="form mb-2" enctype="multipart/form-data">
+              {% csrf_token %}
+              {{ form | crispy }}
+              <div class="text-end my-4">
+                  <a class="btn btn-success post-btn rounded-0" href="{% url 'my_adverts' %}">Cancel</a>
+                  <button class="btn btn-success post-btn rounded-0" type="submit">Update Advert</button>
+              </div>
+          </form>
+      </div>            
+  </div>
+</div> 
 
 {% endblock%}

@@ -14,4 +14,16 @@ class AdvertForm(forms.ModelForm):
         Meta Class
         """
         model = Advert
-        fields = ['title', 'type', 'featured_image', 'item_make', 'item_model', 'condition', 'calibre', 'price', 'description', 'contact_details']
+        fields = (
+            'title', 'type', 'featured_image',
+            'item_make', 'item_model', 'condition',
+            'calibre', 'price', 'description', 'contact_details'
+        )
+
+    def __init__(self, *args, **kwargs):
+        """
+        Custom init
+        """
+        super().__init__(*args, **kwargs)
+
+        self.fields['title'].widget.attrs['autofocus'] = True
