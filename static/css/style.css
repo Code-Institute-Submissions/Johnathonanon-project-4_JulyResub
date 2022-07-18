@@ -87,8 +87,8 @@ a {
 .info-container {
   height: 90%;
   width: 80%;
-  background-color: rgba(242, 242, 242, 1);
-  border-radius: 2px;
+  background-color: rgba(242, 242, 242, 0.8);
+  border-radius: 0;
   overflow: scroll;
 }
 
