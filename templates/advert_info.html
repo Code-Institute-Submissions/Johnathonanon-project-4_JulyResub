@@ -19,8 +19,13 @@
         </div>
         <div class="card ad-img-card">
             <div class="card-body">
+                {% if advert.featured_image %}
                 <img src="{{ advert.featured_image.url }}" class="ad-img"
                     alt="Image of item for sale">
+                {% else %}
+                <img src="{% if DEBUG %}{{ MEDIA_URL }}noimage.png{% else %}https://res.cloudinary.com/dgosfiw2e/image/upload/v1657483621/media/noimage_mpqe58.png{% endif %}" class="ad-img"
+                    alt="Image of item for sale">
+                {% endif %}
             </div>
         </div>
         <div class="card info-card">

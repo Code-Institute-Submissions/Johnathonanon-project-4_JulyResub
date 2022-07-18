@@ -27,16 +27,12 @@
                     <h5 class="my-auto">{{ advert.title }}</h5>
                 </div>
                 {% if advert.featured_image %}
-                <a href="{% url 'advert_info' advert.slug %}">
                 <img class="card-img-top p-4 my-auto rounded-0" src="{{ advert.featured_image.url }}"
                     alt="{{ advert.title }}">
-                </a>
                 {% else %}
-                <a href="{% url 'advert_info' advert.slug %}">
                 <img class="card-img-top p-4 my-auto rounded-0"
                     src="{% if DEBUG %}{{ MEDIA_URL }}noimage.png{% else %}https://res.cloudinary.com/dgosfiw2e/image/upload/v1657483621/media/noimage_mpqe58.png{% endif %}"
                     alt="{{ advert.title }}">
-                </a>
                 {% endif %}
                 <div class="card-body">
                 </div>
@@ -46,6 +42,7 @@
                             <p class="card-text">{{ advert.description|truncatechars:100 }}</p>
                             <p class="lead mb-0 text-left fw-bold">€{{ advert.price }}</p>
                             <p>{{ advert.created_on }}</p>
+                            <a href="{% url 'advert_info' advert.slug %}" class="btn btn-success rounded-0 float-end mb-2">View Advert</a>
                         </div>
                     </div>
                 </div>

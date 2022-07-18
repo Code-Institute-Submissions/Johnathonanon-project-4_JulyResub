@@ -19,6 +19,10 @@ h3 {
   font-family: 'Noto Sans', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 .navbar-brand {
   font-size: 200%;
 }
