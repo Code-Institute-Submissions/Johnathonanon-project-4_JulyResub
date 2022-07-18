@@ -2,14 +2,14 @@
 
 {% block content %}
 
-<div class="container-fluid">
-  <div class="card signin-card offset-md-2">
+<div class="container-fluid auth-container">
+  <div class="card mx-auto my-5 rounded-0">
     <div class="card-body">
       <h1>Delete Advert </h1>
       <form method="post">{% csrf_token %}
 	    <p>Are you sure you want to delete "{{ advert.title }}"?</p>
-      <input type="submit" class="btn btn-danger" value="Confirm">
-      <a href="/" class="btn btn-success">Cancel</a>
+      <input type="submit" class="btn btn-danger rounded-0" value="Confirm">
+      <a href="/" class="btn btn-success rounded-0">Cancel</a>
       </form> 
     </div>
   </div>
