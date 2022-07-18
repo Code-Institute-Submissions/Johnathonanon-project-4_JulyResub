@@ -13,7 +13,7 @@
 
   <div class="row">
       <div class="col-12 col-md-6 mx-auto">
-          <form method="POST" action="{% url 'edit_advert' advert.id %}" class="form mb-2" enctype="multipart/form-data">
+          <form method="POST" action="{% url 'edit_advert' advert.slug %}" class="form mb-2" enctype="multipart/form-data">
               {% csrf_token %}
               {{ form | crispy }}
               <div class="text-end my-4">

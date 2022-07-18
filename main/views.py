@@ -55,7 +55,7 @@ class UpdateAdvert(UpdateView):
     model = Advert
     form_class = AdvertForm
     template_name = 'edit_advert.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('my_adverts')
 
 
 class DeleteAdvert(DeleteView):
