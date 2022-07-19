@@ -30,27 +30,27 @@ The user is greeted with the home page intially. The header contains the logo on
 
 Next to the "Home" button is the "Register" button. If "Register" is clicked, the following page is displayed: 
 
-![Picture of Sign Up Page](media/readme_images/SignUp.png)
+![Picture of Sign Up Page](media/readme_images/signup.png)
 
 Next to the "Register" button is the "Login" button when clicked looks like the image below:
 
-![Picture of Login Page](media/readme_images/SignIn.png)
+![Picture of Login Page](media/readme_images/signin.png)
 
 To create an account with Firearm Exchange, simply click "Register" and fill out the required information. See image below for guidance:
 
-![Picture of Filling out Registration Details](media/readme_images/RegisteringInfo.png)
+![Picture of Filling out Registration Details](media/readme_images/registration.png)
 
 Once Registration information is filled in, click the green "Sign Up" button. Now that an account has been created, clicking the "Login" button and filling out the same information used to register the account will allow us to sign into the account. Once the screen looks like the image below, you are ready to sign in to the account by clicking the green "Sign In" button.
 
-![Picture of Filling out Signing In Details to Login](media/readme_images/Signingintoaccount.png)
+![Picture of Filling out Signing In Details to Login](media/readme_images/loggingin.png)
 
 After logging into the account, the header will then look like the below image:
 
-![Picture of Header after Logging In](media/readme_images/afterloggingin.png)
+![Picture of Header after Logging In](media/readme_images/loggednav.png)
 
 On the right hand side, the "Home" button is still present and will bring you to the homepage of the web application. Next to that is a drop down menu named "My F|E". If clicked this will display the following option:
 
-![Picture of drop down menu](media/readme_images/dropdownmenu6.png)
+![Picture of drop down menu](media/readme_images/dropdown.png)
 
 If "My Advert" is clicked on, this will bring the web application user to the accounts list of posted adverts on Eirearm Exchange. Since this account does not have any listed adverts, this page is blank for now. 
 
@@ -62,11 +62,11 @@ And with a populated list.
 
 Next to the "My F|E" drop down menu is the "Logout" button. If clicked this will promptly log the user out of their account. This Button only appears if the user is logged into the web application. Next to the "Logout" button is the green "Post Advert" button. If clicked, it will bring the user to this page: 
 
-![Picture of Blank Post Advert Page](media/readme_images/AdvertBlank.png)
+![Picture of Blank Post Advert Page](media/readme_images/postadform.png)
 
 If All of the information is filled out, the web application user can click "Post Advert". This will allow the user to post an advert about their item that they wish to sell or trade. See the image below as an example:
 
-![Picture of Filled in Information Post Advert Page](media/readme_images/blasteradexample.png)
+![Picture of Filled in Information Post Advert Page](media/readme_images/adformexample.png)
 
 Once information is filled in to the users desire, the advert can be posted by clicking the green button "Post Advert".
 
