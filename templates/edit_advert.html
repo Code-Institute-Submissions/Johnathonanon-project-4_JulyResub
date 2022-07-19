@@ -3,26 +3,42 @@
 {% block content %}
 
 <div class="container-fluid edit-ad-bg mx-auto">
-  <div class="row">
-      <div class="col-12 col-md-6 mx-auto text-center">
-          <hr>
-          <h5>Edit Advert</h5>
-          <hr>
-      </div>
-  </div>
+    {% if advert.seller != user %}
+    <div class="row">
+        <div class="col-12 col-md-6 mx-auto text-center">
+            <div class="my-5 border border-danger">
+                <h5 class="m-3">Error!</h5>
+                <p class="m-3">This User account is not the registered seller associated with this post.
+                   Editing is not possible.
+                   Please sign in using the correct account or return to the home page.
+                </p>
+                <a href="{% url 'home' %}" class="btn btn-danger rounded-0 m-3">Return</a>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="row">
+        <div class="col-12 col-md-6 mx-auto text-center">
+            <hr>
+            <h5>Edit Advert</h5>
+            <hr>
+        </div>
+    </div>
 
-  <div class="row">
-      <div class="col-12 col-md-6 mx-auto">
-          <form method="POST" action="{% url 'edit_advert' advert.slug %}" class="form mb-2" enctype="multipart/form-data">
-              {% csrf_token %}
-              {{ form | crispy }}
-              <div class="text-end my-4">
-                  <a class="btn btn-success rounded-0" href="{% url 'my_adverts' %}">Cancel</a>
-                  <button class="btn btn-success rounded-0" type="submit">Update Advert</button>
-              </div>
-          </form>
-      </div>            
-  </div>
-</div> 
+    <div class="row">
+        <div class="col-12 col-md-6 mx-auto">
+            <form method="POST" action="{% url 'edit_advert' advert.slug %}" class="form mb-2"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="text-end my-4">
+                    <a class="btn btn-success rounded-0" href="{% url 'my_adverts' %}">Cancel</a>
+                    <button class="btn btn-success rounded-0" type="submit">Update Advert</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endif %}
+</div>
 
 {% endblock%}

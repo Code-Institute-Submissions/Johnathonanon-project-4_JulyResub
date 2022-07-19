@@ -93,7 +93,9 @@ Adverts are then used to populate the "Latest Adverts" list on the home page.
 - A commenting system on the advert. This was attempted, and followed the tutorial provided by the module but actually getting it to be fully working was just out of my grasp. I would be reminded by tutoring support that I should go to my mentor with this issue, but when doing so, my mentor would tell me to go to tutoring support. The full circle process would take hours. 
 
 ## Testing
-The application has been consistently tested throughout its development by both myself and others. The gender and age of testers varied, with age ranging from 20s to 60s and testers having a diverse range of computer knowledge, and each tester found the application intuitive and easy to use.
+No automatic testing was performed, however the application has been stringently tested manually. Testing was carried out both on development enviroment initially live site post deployment. The details of which are:
+
+- CRUD functionality has been tested my myself and others and has been found to be functioning as intended, users are able to create advert instances, this has been verified through admin. Users are able to both edit and delete their own created adverts. Login required has been imported and implemented in order to restrict access to this functionality to non logged in site users. The application previously had a bug where this was possible but has been rectified as previously stated.
  
 Several bugs were found in development but all were corrected to the best of my knowledge at the submission of this project. 
 

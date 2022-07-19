@@ -3,16 +3,31 @@
 {% block content %}
 
 <div class="container-fluid auth-container">
+  {% if advert.seller != user %}
+  <div class="row">
+    <div class="col-12 col-md-6 mx-auto text-center">
+      <div class="my-5 border border-danger">
+        <h5 class="m-3">Error!</h5>
+        <p class="m-3">This User account is not the registered seller associated with this post.
+          Deletion is not possible.
+          Please sign in using the correct account or return to the home page.
+        </p>
+        <a href="{% url 'home' %}" class="btn btn-danger rounded-0 m-3">Return</a>
+      </div>
+    </div>
+  </div>
+  {% else %}
   <div class="card mx-auto my-5 rounded-0">
     <div class="card-body">
-      <h1>Delete Advert </h1>
+      <h3>Delete Advert </h3>
       <form method="post">{% csrf_token %}
-	    <p>Are you sure you want to delete "{{ advert.title }}"?</p>
-      <input type="submit" class="btn btn-danger rounded-0" value="Confirm">
-      <a href="/" class="btn btn-success rounded-0">Cancel</a>
-      </form> 
+        <p>Are you sure you want to delete "{{ advert.title }}"?</p>
+        <input type="submit" class="btn btn-danger rounded-0" value="Confirm">
+        <a href="/" class="btn btn-success rounded-0">Cancel</a>
+      </form>
     </div>
   </div>
 </div>
+{% endif %}
 
 {% endblock %}
