@@ -7,7 +7,8 @@ from . import views
 
 urlpatterns = [
     path('', views.AdvertList.as_view(), name='home'),
-    path('my_adverts/', views.MyAdvertList.as_view(), name='my_adverts'),
+    path('my_adverts/',
+         login_required(views.MyAdvertList.as_view()), name='my_adverts'),
     path('post_advert/',
          login_required(views.PostAdvert.as_view()), name='post_advert'),
     path('edit/<slug>',

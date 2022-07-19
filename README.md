@@ -93,11 +93,21 @@ Adverts are then used to populate the "Latest Adverts" list on the home page.
 - A commenting system on the advert. This was attempted, and followed the tutorial provided by the module but actually getting it to be fully working was just out of my grasp. I would be reminded by tutoring support that I should go to my mentor with this issue, but when doing so, my mentor would tell me to go to tutoring support. The full circle process would take hours. 
 
 ## Testing
-No automatic testing was performed, however the application has been stringently tested manually. Testing was carried out both on development enviroment initially live site post deployment. The details of which are:
+No automatic testing was performed, however the application has been stringently tested manually. Testing was carried out both on development enviroment initially and live site post deployment. The details of which are:
 
-- CRUD functionality has been tested my myself and others and has been found to be functioning as intended, users are able to create advert instances, this has been verified through admin. Users are able to both edit and delete their own created adverts. Login required has been imported and implemented in order to restrict access to this functionality to non logged in site users. The application previously had a bug where this was possible but has been rectified as previously stated.
+- CRUD functionality has been tested by myself and others and has been found to be functioning as intended, users are able to create advert instances, this has been verified through admin. Users are able to both edit and delete their own created adverts, and all forms are working. Login required has been imported and implemented in order to restrict access to this functionality to non logged in site users. An if statement on the edit and delete advert templates makes it impossible for a user to edit or delete an advert that does not belong to them. The application previously had a bug where this was possible but has been rectified as previously stated.
+
+![Picture of logged out user edit redirect](media/readme_images/edit_redirect_signin.png)
+
+![Picture of logged out user delete redirect](media/readme_images/delete_redirect_signin.png)
+
+![Picture of user edit redirect](media/readme_images/edit_redirect.png)
+
+![Picture of user delete redirect](media/readme_images/delete_redirect.png)
  
-Several bugs were found in development but all were corrected to the best of my knowledge at the submission of this project. 
+- The user account functionality comes from allauth and this has been fully tested and working as intended. Users can create an account using an email address, username, and password and upon verification they are able to sign in and access that part of the site. Users are able to post adverts, as well as edit and delete their own adverts, users are not able to access the edit and delete functionality for ads for which they are not registered as the 'seller'. This has been tested by creating various accounts and attempting to access various parts of the site the user doesn't have permission to enter.
+
+- 
 
 The site had many issues during production but these were ultimately rectified thanks to help from tutor support, online resource, and avid troublshooting.
 
