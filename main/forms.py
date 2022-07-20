@@ -1,5 +1,5 @@
 """
-Imports
+Main app forms file
 """
 from django import forms
 from .models import Advert

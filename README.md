@@ -1,6 +1,6 @@
 # Firearm Exchange Classified Advert Website
 
-Firearm Exchange is a fully-functioning, interactive web application biuilt using django, postgresql, bootstrap and deployed to heroku. People who participate in Precision Rifle Series can use the web application to trade and sell firearms. Precision Rifle Series is a rifle-based shooting sport that has championship style competitiors. Points can be collected from competitions and is a hobby enjoyed by people across the world. Of course, there are other competitive shooting sports that can also gain benefit from using the web application. Users can log-in, sign-up, post an advert and use contact information on an advert to commumicate with the seller. An agreenment can be made between the seller and buyer. Currently, web applications that fit into this category are few and far between. The web application is not limited to firearms, but scopes, accessories and ammunition can be traded as well. 
+Firearm Exchange is a fully-functioning, interactive web application built using django, postgresql, bootstrap and deployed to heroku. People who participate in Precision Rifle Series (PRS) can use the web application to trade and sell firearms. Precision Rifle Series is a rifle-based shooting sport that has championship style competitors. Points can be collected from competitions and is a hobby enjoyed by people across the world. Of course, there are other competitive shooting sports that can also gain benefit from using the web application. Users can log-in, sign-up, post an advert and use contact information on an advert to commumicate with the seller. An agreenment can be made between the seller and buyer. Currently, web applications that fit into this category are few and far between. The web application is not limited to firearms, but scopes, accessories and ammunition can be traded as well. 
 
 
 
@@ -68,6 +68,10 @@ If All of the information is filled out, the web application user can click "Pos
 
 ![Picture of Filled in Information Post Advert Page](media/readme_images/adformexample.png)
 
+If a user neglects to fill in a requirted field they will be prompted to do so
+
+![Picture of ad form validation](media/readme_images/form_validation.png)
+
 Once information is filled in to the users desire, the advert can be posted by clicking the green button "Post Advert".
 
 Adverts are then used to populate the "Latest Adverts" list on the home page.
@@ -93,15 +97,23 @@ Adverts are then used to populate the "Latest Adverts" list on the home page.
 - A commenting system on the advert. This was attempted, and followed the tutorial provided by the module but actually getting it to be fully working was just out of my grasp. I would be reminded by tutoring support that I should go to my mentor with this issue, but when doing so, my mentor would tell me to go to tutoring support. The full circle process would take hours. 
 
 ## Testing
-No automatic testing was performed, however the application has been stringently tested manually. Testing was carried out both on development enviroment initially and live site post deployment. The details of which are:
+No automatic testing was performed, however the application has been stringently tested manually. Testing was carried out both on development environment initially and live site post deployment. The details of which are:
 
 - CRUD functionality has been tested by myself and others and has been found to be functioning as intended, users are able to create advert instances, this has been verified through admin. Users are able to both edit and delete their own created adverts, and all forms are working. Login required has been imported and implemented in order to restrict access to this functionality to non logged in site users. An if statement on the edit and delete advert templates makes it impossible for a user to edit or delete an advert that does not belong to them. The application previously had a bug where this was possible but has been rectified as previously stated.
 
+Sign in prompt to signed out user upon attempt to access edit template
+
 ![Picture of logged out user edit redirect](media/readme_images/edit_redirect_signin.png)
+
+Sign in prompt to signed out user upon attempt to access delete template
 
 ![Picture of logged out user delete redirect](media/readme_images/delete_redirect_signin.png)
 
+Redirect prompt in template for user attempting to edit advert for which they are not the seller
+
 ![Picture of user edit redirect](media/readme_images/edit_redirect.png)
+
+Redirect prompt in template for user attempting to delete advert for which they are not the seller
 
 ![Picture of user delete redirect](media/readme_images/delete_redirect.png)
  
@@ -115,17 +127,28 @@ No automatic testing was performed, however the application has been stringently
 
 - Before submission flake8 was ran in terminal and no relevant errors were displayed. The errors that were displayed were line too long errors in settings and migrations files and it was decided to leave them as is.
 
-All code was passed throught the PEP8 linter and passing ok.
 
 ### Validator Testing
 
+All code was passed throught the PEP8 linter and found 'all right'.
+
 PEP8 linter - http://pep8online.com/
+
+PEP8 linter urls.py
 
 ![Picture of linter 1](media/readme_images/pep8_urls.png)
 
+PEP8 linter views.py
+
 ![Picture of linter 2](media/readme_images/pep8_views.png)
 
+PEP8 linter models.py
+
 ![Picture of linter 3](media/readme_images/pep8_models.png)
+
+PEP8 linter models.py
+
+![Picture of linter 4](media/readme_images/pep8_forms.png)
 
 ### Unfixed Bugs
 
