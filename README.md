@@ -105,11 +105,15 @@ No automatic testing was performed, however the application has been stringently
 
 ![Picture of user delete redirect](media/readme_images/delete_redirect.png)
  
-- The user account functionality comes from allauth and this has been fully tested and working as intended. Users can create an account using an email address, username, and password and upon verification they are able to sign in and access that part of the site. Users are able to post adverts, as well as edit and delete their own adverts, users are not able to access the edit and delete functionality for ads for which they are not registered as the 'seller'. This has been tested by creating various accounts and attempting to access various parts of the site the user doesn't have permission to enter.
+- The user account functionality comes from allauth and this has been fully tested and working as intended. Users can create an account using an email address, username, and password and upon email verification they are able to sign in and access that part of the site. Users are able to post adverts, as well as edit and delete their own adverts, users are not able to access the edit and delete functionality for ads for which they are not registered as the 'seller'. This has been tested by creating various accounts and attempting to access various parts of the site the user doesn't have permission to enter. Originally, no email verication was required but a connection error was being encountered upon new account registration and so mandatory email verification as per django/allauth docs was implemented.
 
-- 
+- The site is fully responsive and this has been verified both through dev tools and on various mobile devices, both in development and production.
 
-The site had many issues during production but these were ultimately rectified thanks to help from tutor support, online resource, and avid troublshooting.
+- The hero image as well as some media was not displaying, this was rectified by a combination of refactored code both in templates and css. If statements were added to templates to allow use of workspace media context processor whike in development or cloudinary urls in production. Static css media background were changed to cloudinary urls. 
+
+- Previously forms were left unstyled due to time constraints. This was sloppy and has been rectified by utilising crispy forms. All forms are working as intended and have been tested by the creation, editing, and deletion of numerous adverts using different accounts. Form validation has been similarly tested and found functioning as intended.
+
+- Before submission flake8 was ran in terminal and no relevant errors were displayed. The errors that were displayed were line too long errors in settings and migrations files and it was decided to leave them as is.
 
 All code was passed throught the PEP8 linter and passing ok.
 
@@ -117,18 +121,222 @@ All code was passed throught the PEP8 linter and passing ok.
 
 PEP8 linter - http://pep8online.com/
 
+![Picture of linter 1](media/readme_images/pep8_urls.png)
+
+![Picture of linter 2](media/readme_images/pep8_views.png)
+
+![Picture of linter 3](media/readme_images/pep8_models.png)
+
 ### Unfixed Bugs
 
 - Unaware of unfixed bigs at time of submission
 
 ## Deployment
 
-- The site was deployed to Heroku. The steps to deploy are as follows:
+### Local Deployment
+
+Requirements.txt:
+- asgiref==3.5.0
+- cloudinary==1.29.0
+- crispy-bootstrap5==0.6
+- dj-database-url==0.5.0
+- dj3-cloudinary-storage==0.0.6
+- Django==3.2
+- django-allauth==0.50.0
+- django-autoslug==1.9.8
+- django-crispy-forms==1.14.0
+- gunicorn==20.1.0
+- oauthlib==3.2.0
+- Pillow==9.0.1
+- psycopg2==2.9.3
+- PyJWT==2.3.0
+- python3-openid==3.2.0
+- pytz==2022.1
+- requests-oauthlib==1.3.1
+- sqlparse==0.4.2
+
+In terminal:
+1. Install Django and gunicorn: pip3 install Django gunicorn
+2. Install supporting libraries: pip3 install dj_database_url psycopg2
+3. Install Cloudinary Libraries: pip3 install dj3-cloudinary-storage
+4. Install Crispy Forms Libraries: pip3 install django-crispy-forms crispy-bootstrap5
+5. Install Pillow: pip3 install Pillow
+6. Install Allauth: pip3 install django-allauth
+7. Install Autoslug: pip3 install django-autoslug
+- OR Install all from requirements if present: pip3 install -r requirements.txt
+8. Create requirements file: pip3 freeze --local > requirements.txt
+9. Create Project (firearmexchange): django-admin startproject PROJECT_NAME .
+10. Create App (main): python3 manage.py startapp APP_NAME
+
+Settings.py:
+1. Add to installed apps: 
+
+    INSTALLED_APPS = [
+        'django.contrib.admin',
+        'django.contrib.auth',
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+        'django.contrib.messages',
+        'django.contrib.sites',
+        'allauth',
+        'allauth.account',
+        'allauth.socialaccount',
+        'cloudinary_storage',
+        'django.contrib.staticfiles',
+        'cloudinary',
+        'main',
+        'crispy_forms',
+        'crispy_bootstrap5'
+]
+
+2. Crispy Forms: 
+
+    CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+    CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+3. Templates: 
+
+    TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [TEMPLATES_DIR],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+            ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
+        },
+    },
+]
+
+4. Auth/Email: 
+    
+    AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+    SITE_ID = 1
+
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+    ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+    ACCOUNT_EMAIL_REQUIRED = True
+    ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+    ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
+    ACCOUNT_USERNAME_MIN_LENGTH = 4
+    LOGIN_URL = '/accounts/login/'
+    LOGIN_REDIRECT_URL = '/'
+    LOGOUT_REDIRECT_URL = '/'
+
+
+    if 'DEVELOPMENT' in os.environ:
+        EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+        DEFAULT_FROM_EMAIL = 'firearmexchange@example.com'
+    else:
+        EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+        EMAIL_USE_TLS = True
+        EMAIL_PORT = 587
+        EMAIL_HOST = 'smtp.gmail.com'
+        EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+        EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASS')
+        DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')
+
+5. Static settings:
+
+      STATIC_URL = '/static/'
+
+      STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+      STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+      STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+      MEDIA_URL = '/media/'
+      DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage' 
+     
+6. Save file 
+
+In terminal:
+1. Migrate Changes: python3 manage.py migrate
+2. Run Server to Test: python3 manage.py runserver
+
+### Heroku Deployment 
+
+The site was deployed to Heroku. The steps to deploy are as follows:
   - Create a heroku account
   - Select create new app on heroku dashboard, and fill out necessary requirements (name, etc.).
-  - Select to add postgresql databse to app.
-  - Once app is created, navigate to 'settings'. Set your config vars ie. database url, secret key. 
-  - Next navigate to 'deploy'. For this project the deployment method chosen was Github. The relevant github account and repository must be connected and then either manual or automatic deployment chosen.
+  - Select to add postgresql databse to app in resources tab.
+  - From cloudinary.com get CLOUDINARY_URL from API variables
+  - From email provider(gmail) get app password
+    - Settings > Accounts and Import > Other Google Account settings > 
+      Security > 2-step verification on > App passwords
+  - Once app is created, navigate to 'settings'. Set your config vars.
+    - CLOUDINARY_URL
+    - DATABASE_URL
+    - EMAIL_HOST_PASS - generated app password 
+    - EMAIL_HOST_USER - your email address
+    - SECRET_KEY
+  - To attach database:
+    - Create env.py
+    - In env.py import os 
+    - Set env variables:
+      - os.environ["DATABASE_URL"] = "Paste in Heroku DATABASE_URL Link"
+      - os.environ["SECRET_KEY"] = "Paste in own randomSecretKey"
+      - os.environ["CLOUDINARY_URL"] = "Paste in cloudinary url"
+  - In Settings:
+    - Import necessities: 
+      - import os
+      - import dj_database_url
+      - if os.path.isfile("env.py"):
+          import env
+    - Replace SECRET_KEY:
+      - SECRET_KEY = os.environ.get('SECRET_KEY')
+    - Refactor database section:
+      - if "DATABASE_URL" in os.environ:
+            DATABASES = {
+                'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+            }
+        else:
+            DATABASES = {
+                'default': {
+                    'ENGINE': 'django.db.backends.sqlite3',
+                    'NAME': os.path.join(BASE_DIR / "db.sqlite3"),
+                }
+            }
+  - In terminal:
+    - Save all files and make migrations
+      - python3 manage.py makemigrations --dry-run
+      - python3 manage.py makemigrations
+      - python3 manage.py migrate --plan
+      - python3 manage.py migrate
+
+  - Ensure settings and variables are as above
+
+  - Add Heroku Hostname to ALLOWED_HOSTS
+    - ALLOWED_HOSTS = ["PROJECT_NAME.herokuapp.com", "localhost"]
+
+  - Add Procfile on top level directory
+
+  - In Procfile: web: gunicorn PROJECT_NAME.wsgi
+
+  - SAVE SAVE SAVE
+
+  - Add, commit, push: 
+   
+   
+      git add .
+
+      git commit -m “Deployment Commit”
+
+      git push
+
+  - Next navigate to 'deploy' in heroku dashboard. For this project the deployment method chosen was Github. The relevant github account and repository must be connected and then either manual or automatic deployment chosen.
   - Once the app is succesfully built it will then be deployed and be 'live'
 
 The live link can be found here - https://firearmexchange.herokuapp.com/
@@ -140,3 +348,9 @@ I am grateful to the Code Institute tutors for their patient help with this proj
 My mentor was very helpful and his knowledge and experience is highly appreciated.
 
 Many elements of this project were created using bootstrap official docs - https://getbootstrap.com/docs/5.1/getting-started/introduction/
+
+Images taken from product websites, all copyright theirs.
+https://www.remarms.com/rifles/bolt-action/model-700/
+https://www.harrisbipods.com/product/1a2-br-bipod/
+https://www.kahles.at/de/sport/zielfernrohre/k525i-5-25x56i
+44 magnum image from unsplash
