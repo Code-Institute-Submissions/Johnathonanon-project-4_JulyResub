@@ -42,8 +42,8 @@
                                 <p class="card-text">{{ advert.description|truncatechars:100 }}</p>
                                 <p class="lead mb-0 text-left fw-bold">€{{ advert.price }}</p>
                                 <p>{{ advert.created_on }}</p>
-                                <a href="{% url 'edit_advert' advert.slug %}" class="btn btn-success rounded-0">Edit Advert</a>
-                                <a href="{% url 'delete_advert' advert.slug %}" class="btn btn-danger rounded-0">Delete Advert</a>
+                                <a href="{% url 'edit_advert' advert.slug %}" class="btn btn-success rounded-0 mb-2">Edit Advert</a>
+                                <a href="{% url 'delete_advert' advert.slug %}" class="btn btn-danger rounded-0 mb-2">Delete Advert</a>
                             </div>
                         </div>
                     </div>
